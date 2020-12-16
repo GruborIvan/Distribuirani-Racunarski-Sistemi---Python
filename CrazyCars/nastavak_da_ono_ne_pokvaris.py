@@ -142,6 +142,8 @@ class PlayWindow(QWidget):
 
         self.paintEvent(self)
 
+        #self.a = Car()
+
         self.setCar()
 
         exit_button.clicked.connect(self.pauseScreen)
@@ -162,7 +164,7 @@ class PlayWindow(QWidget):
         col = QColor(0, 0, 0)
         col.setNamedColor("Black")
         qp.setPen(col)
-        qp.setBrush(QBrush(Qt.gray, Qt.SolidPattern))
+        qp.setBrush(QBrush(QColor(128,128,128), Qt.SolidPattern))
         qp.drawRect(75, 0, 400, 700)
 
     def drawLines(self, qp):
@@ -177,10 +179,9 @@ class PlayWindow(QWidget):
 
     def setCar(self):
         label = QLabel(self)
-        pixmap = QPixmap('rsz_car1Ok.png')
-
+        pixmap = QPixmap('rsz_f47de7fd81202f36e8fc39bf2a5f296f.jpg')
         label.setPixmap(pixmap)
-        label.setGeometry(250, 600, 50, 100)
+        label.setGeometry(250, 620, 50, 80)
 
 
 class PauseWindow(QWidget):

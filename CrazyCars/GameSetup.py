@@ -1,9 +1,9 @@
 from PyQt5.QtGui import QBrush, QColor, QPen, QPainter, QPixmap
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QLabel, QWidget
+from PyQt5.QtWidgets import QLabel, QWidget, QFrame
 
 
-class Car(QWidget):
+class Car(QFrame):
     def __init__(self):
         super().__init__()
         self.setCar()
@@ -13,3 +13,4 @@ class Car(QWidget):
 
         label.setPixmap(pixmap)
         label.setGeometry(250, 600, 50, 100)
+        self.show()
