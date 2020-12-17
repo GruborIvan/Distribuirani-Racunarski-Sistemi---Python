@@ -1,12 +1,13 @@
 import sys
 
-from PyQt5.QtCore import QCoreApplication
-from PyQt5.QtGui import QIcon, QCursor, QPainter, QPen, QBrush, QColor, QPixmap
+from PyQt5.QtCore import QCoreApplication, QRect
+from PyQt5.QtGui import QIcon, QCursor, QPainter, QPen, QBrush, QColor, QPixmap, QImage
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QDesktopWidget, QPushButton, QHBoxLayout, QVBoxLayout, \
     QLabel
 from PyQt5.QtCore import Qt
 from PyQt5 import QtGui, QtWidgets, QtCore
-from GameSetup import Car
+
+from Avatar import Avatar
 
 
 class MainWindow(QWidget):
@@ -35,14 +36,14 @@ class MainWindow(QWidget):
         self.move(qr.topLeft())
 
     def mainScreen(self):
-        #start_button = QPushButton("Start game!!!")
-        #exit_button = QPushButton("Exit")
-        #vbox = QVBoxLayout()
-        #vbox.addWidget(start_button)
-        #vbox.addWidget(exit_button)
-        #hbox = QHBoxLayout()
-        #hbox.addLayout(vbox)
-        #self.setLayout(hbox)
+        # start_button = QPushButton("Start game!!!")
+        # exit_button = QPushButton("Exit")
+        # vbox = QVBoxLayout()
+        # vbox.addWidget(start_button)
+        # vbox.addWidget(exit_button)
+        # hbox = QHBoxLayout()
+        # hbox.addLayout(vbox)
+        # self.setLayout(hbox)
 
         label = QtWidgets.QLabel(self)
         label.setGeometry(QtCore.QRect(0, 110, 561, 361))
@@ -142,11 +143,15 @@ class PlayWindow(QWidget):
 
         self.paintEvent(self)
 
-        #self.a = Car()
+        #self.setCar()
+        self.a = Avatar(self)
 
-        self.setCar()
+        #self.a.label.setFocus()
+
 
         exit_button.clicked.connect(self.pauseScreen)
+
+
 
     def pauseScreen(self):
         self.wp = PauseWindow()
@@ -164,7 +169,7 @@ class PlayWindow(QWidget):
         col = QColor(0, 0, 0)
         col.setNamedColor("Black")
         qp.setPen(col)
-        qp.setBrush(QBrush(QColor(128,128,128), Qt.SolidPattern))
+        qp.setBrush(QBrush(QColor(128, 128, 128), Qt.SolidPattern))
         qp.drawRect(75, 0, 400, 700)
 
     def drawLines(self, qp):
@@ -209,7 +214,6 @@ class PauseWindow(QWidget):
         self.move(qr.topLeft())
 
     def setScreen(self):
-
         font = QtGui.QFont()
         font.setPointSize(24)
 
@@ -263,9 +267,3 @@ class PauseWindow(QWidget):
         self.wp = PlayWindow()
         self.wp.show()
         self.hide()
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    prozor = MainWindow()
-
-    sys.exit(app.exec_())
