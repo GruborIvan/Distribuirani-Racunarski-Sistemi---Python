@@ -8,6 +8,9 @@ from PyQt5.QtCore import Qt
 from PyQt5 import QtGui, QtWidgets, QtCore
 
 from Avatar import Avatar
+from Scores import Scores
+from Coin import Coin
+from Coin import CoinFactory
 
 
 class MainWindow(QWidget):
@@ -36,14 +39,6 @@ class MainWindow(QWidget):
         self.move(qr.topLeft())
 
     def mainScreen(self):
-        # start_button = QPushButton("Start game!!!")
-        # exit_button = QPushButton("Exit")
-        # vbox = QVBoxLayout()
-        # vbox.addWidget(start_button)
-        # vbox.addWidget(exit_button)
-        # hbox = QHBoxLayout()
-        # hbox.addLayout(vbox)
-        # self.setLayout(hbox)
 
         label = QtWidgets.QLabel(self)
         label.setGeometry(QtCore.QRect(0, 110, 561, 361))
@@ -131,7 +126,6 @@ class PlayWindow(QWidget):
         exit_button.setFixedWidth(50)
         exit_button.setFixedHeight(50)
         oImage = QImage("put2.png")
-
         palette = QPalette()
         palette.setBrush(QPalette.Window, QBrush(oImage))
         self.setPalette(palette)
@@ -140,25 +134,31 @@ class PlayWindow(QWidget):
         hbox = QHBoxLayout()
         hbox.addStretch(1)
         hbox.addWidget(exit_button)
-
-
         vbox = QVBoxLayout()
         vbox.addStretch(1)
-
         vbox.addLayout(hbox)
         self.setLayout(vbox)
-
         self.paintEvent(self)
 
+        #scores
+        self.score = Scores(self)
+
         self.a = Avatar(self)
+        #self.c = Coin(self)
+
+        self.coinFactory=CoinFactory(self)
+        self.coinFactory.createRandomCoin()
 
         exit_button.clicked.connect(self.pauseScreen)
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_A:
             self.a.moveMeLeft()
+            #self.score.changeScore()
+            self.score.loseLife()
         if event.key() == QtCore.Qt.Key_D:
             self.a.moveMeRight()
+            #self.score.changeLevel()
 
 
     def pauseScreen(self):
@@ -180,6 +180,7 @@ class PlayWindow(QWidget):
         qp.drawLine(235, 0, 235, 700)
         qp.drawLine(315, 0, 315, 700)
         qp.drawLine(395, 0, 395, 700)
+
 
 class PauseWindow(QWidget):
 
