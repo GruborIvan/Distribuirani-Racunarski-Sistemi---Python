@@ -24,6 +24,10 @@ class Coin:
         self.label.setGeometry(self.x, self.y, self.width, self.height)
         self.label.show()
 
+    def moveMeDown(self):
+        self.y = self.y+10
+        self.label.setGeometry(self.x,self.y,self.width,self.height)
+
 class CoinFactory:
     def __init__(self, screen: QWidget):
         self.y=0
@@ -36,4 +40,4 @@ class CoinFactory:
         x_values=[110,183,263,343,414]
         self.x = x_values[random.randint(0,4)]
         self.coin=Coin(self.screen, self.x,self.y,self.width,self.height)
-
+        return self.coin

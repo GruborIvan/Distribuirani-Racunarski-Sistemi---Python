@@ -8,6 +8,7 @@ from PyQt5.QtCore import Qt
 from PyQt5 import QtGui, QtWidgets, QtCore
 
 from Avatar import Avatar
+from Avatar import AvatarFactory
 from Scores import Scores
 from Coin import Coin
 from Coin import CoinFactory
@@ -143,11 +144,14 @@ class PlayWindow(QWidget):
         #scores
         self.score = Scores(self)
 
+        #avatars
         self.a = Avatar(self)
-        #self.c = Coin(self)
+        self.avatarFactory =AvatarFactory(self)
+        self.a2=self.avatarFactory.createRandomAvatar()
 
+        #coins
         self.coinFactory=CoinFactory(self)
-        self.coinFactory.createRandomCoin()
+        self.c2=self.coinFactory.createRandomCoin()
 
         exit_button.clicked.connect(self.pauseScreen)
 
@@ -158,6 +162,9 @@ class PlayWindow(QWidget):
             self.score.loseLife()
         if event.key() == QtCore.Qt.Key_D:
             self.a.moveMeRight()
+            #self.score.changeLevel()
+        if event.key() == QtCore.Qt.Key_S:
+            self.c2.moveMeDown()
             #self.score.changeLevel()
 
 
