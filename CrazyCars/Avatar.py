@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QLabel, QWidget, QFrame, QLayout
 from PyQt5 import QtCore,QtGui, QtWidgets
 
 class Avatar:
-    def __init__(self, screen: QWidget, x: int = 250, y: int=620, width: int=50, height: int=80, img: str='rsz_f47de7fd81202f36e8fc39bf2a5f296f.jpg'):
+    def __init__(self, screen: QWidget, x: int = 250, y: int=620, width: int=50, height: int=80, img: str='crvenii.png'):
 
         self.x = x
         self.y = y
@@ -16,38 +16,16 @@ class Avatar:
         self.image_pixmap = QPixmap(self.img)
         self.label.setPixmap(self.image_pixmap)
         self.label.setGeometry(self.x, self.y, self.width, self.height)
+        self.label.show()
+
+    def moveMeLeft(self):
+        if self.x >90:
+            self.x = self.x-10
+            self.label.setGeometry(self.x, self.y, self.width, self.height)
 
 
-'''
-    def keyPressEvent(self, event):
+    def moveMeRight(self):
+        if self.x <410:
+            self.x = self.x+10
+            self.label.setGeometry(self.x, self.y, self.width, self.height)
 
-
-        if event.key() == QtCore.Qt.Key_A:
-            self.x = self.x -5
-
-        elif event.key() == QtCore.Qt.Key_D:
-            self.x = self.x - 5
-
-'''
-
-
-
-
-
-
-
-
-
-
-
-'''
- def paintEvent(self, e):
-        qp = QPainter()
-        qp.begin(e)
-        self.drawImage(qp)
-        qp.end()
-
-    def drawImage(self, qp):
-        qp.drawImage(QRect(250, 600, 50, 100), QImage('rsz_f47de7fd81202f36e8fc39bf2a5f296f.jpg'))
-
-'''
