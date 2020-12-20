@@ -12,6 +12,7 @@ from Avatar import AvatarFactory
 from Scores import Scores
 from Coin import Coin
 from Coin import CoinFactory
+from AllObjectsFactory import ObjectFactory
 
 
 class MainWindow(QWidget):
@@ -146,12 +147,17 @@ class PlayWindow(QWidget):
 
         #avatars
         self.a = Avatar(self)
-        self.avatarFactory =AvatarFactory(self)
-        self.a2=self.avatarFactory.createRandomAvatar()
+        #self.avatarFactory =AvatarFactory(self)
+        #self.a2=self.avatarFactory.createRandomAvatar()
 
         #coins
-        self.coinFactory=CoinFactory(self)
-        self.c2=self.coinFactory.createRandomCoin()
+        #self.coinFactory=CoinFactory(self)
+        #self.c2=self.coinFactory.createRandomCoin()
+
+        self.o=ObjectFactory(self)
+        self.o.createObject()
+        self.o.createObject()
+        self.o.createObject()
 
         exit_button.clicked.connect(self.pauseScreen)
 
