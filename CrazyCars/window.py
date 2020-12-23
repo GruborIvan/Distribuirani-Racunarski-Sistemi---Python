@@ -148,15 +148,6 @@ class PlayWindow(QWidget):
 
         #avatars
         self.a = Avatar(self)
-        #self.avatarFactory =AvatarFactory(self)
-        #self.a2=self.avatarFactory.createRandomAvatar()
-
-        #coins
-        #self.coinFactory=CoinFactory(self)
-        #self.c2=self.coinFactory.createRandomCoin()
-
-        #self.o=ObjectFactory(self)
-        #self.o.createObject()
 
         self.tO= TimerObjects(self)
         self.tO.generateObjectWithTimer()
