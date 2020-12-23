@@ -150,8 +150,14 @@ class PlayWindow(QWidget):
         self.a = Avatar(self)
 
         self.tO= TimerObjects(self)
+        #Pokretanje sa tajmerom-Prvi nacin
+
         self.tO.generateObjectWithTimer()
+        #Pokretanje drugi nacin
+
         #self.tO.pokreniThread()
+
+        #Pokretanje treci nacin
         #self.tO.generateObjectWithoutTimer()
 
         exit_button.clicked.connect(self.pauseScreen)
