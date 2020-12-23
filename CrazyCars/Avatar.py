@@ -39,7 +39,7 @@ class Avatar:
         self.y = self.y +10
         self.label.setGeometry(self.x,self.y,self.width,self.height)
 
-class AvatarFactory:
+class AvatarFactory():
     def __init__(self, screen: QWidget):
         self.screen = screen
         self.y=0

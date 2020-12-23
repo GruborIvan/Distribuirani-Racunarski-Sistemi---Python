@@ -13,6 +13,7 @@ from Scores import Scores
 from Coin import Coin
 from Coin import CoinFactory
 from AllObjectsFactory import ObjectFactory
+from AllObjectsFactory import TimerObjects
 
 
 class MainWindow(QWidget):
@@ -154,10 +155,13 @@ class PlayWindow(QWidget):
         #self.coinFactory=CoinFactory(self)
         #self.c2=self.coinFactory.createRandomCoin()
 
-        self.o=ObjectFactory(self)
-        self.o.createObject()
-        self.o.createObject()
-        self.o.createObject()
+        #self.o=ObjectFactory(self)
+        #self.o.createObject()
+
+        self.tO= TimerObjects(self)
+        self.tO.generateObjectWithTimer()
+        #self.tO.pokreniThread()
+        #self.tO.generateObjectWithoutTimer()
 
         exit_button.clicked.connect(self.pauseScreen)
 
@@ -165,7 +169,7 @@ class PlayWindow(QWidget):
         if event.key() == QtCore.Qt.Key_A:
             self.a.moveMeLeft()
             #self.score.changeScore()
-            self.score.loseLife()
+            #self.score.loseLife()
         if event.key() == QtCore.Qt.Key_D:
             self.a.moveMeRight()
             #self.score.changeLevel()

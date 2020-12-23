@@ -28,7 +28,7 @@ class Coin:
         self.y = self.y+10
         self.label.setGeometry(self.x,self.y,self.width,self.height)
 
-class CoinFactory:
+class CoinFactory():
     def __init__(self, screen: QWidget):
         self.y=0
         self.width=25
