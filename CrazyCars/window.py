@@ -151,10 +151,9 @@ class PlayWindow(QWidget):
 
         self.tO= TimerObjects(self)
         #Pokretanje sa tajmerom-Prvi nacin
-
         self.tO.generateObjectWithTimer()
-        #Pokretanje drugi nacin
 
+        #Pokretanje drugi nacin
         #self.tO.pokreniThread()
 
         #Pokretanje treci nacin
@@ -170,9 +169,7 @@ class PlayWindow(QWidget):
         if event.key() == QtCore.Qt.Key_D:
             self.a.moveMeRight()
             #self.score.changeLevel()
-        if event.key() == QtCore.Qt.Key_S:
-            self.c2.moveMeDown()
-            #self.score.changeLevel()
+
 
 
     def pauseScreen(self):

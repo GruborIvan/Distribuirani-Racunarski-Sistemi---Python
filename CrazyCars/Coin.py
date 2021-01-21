@@ -25,7 +25,7 @@ class Coin:
         self.label.show()
 
     def moveMeDown(self):
-        self.y = self.y+10
+        self.y = self.y+20
         self.label.setGeometry(self.x,self.y,self.width,self.height)
 
 class CoinFactory():

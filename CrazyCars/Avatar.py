@@ -34,9 +34,8 @@ class Avatar:
             self.x = self.x+10
             self.label.setGeometry(self.x, self.y, self.width, self.height)
 
-
     def moveMeDown(self):
-        self.y = self.y +10
+        self.y = self.y +40
         self.label.setGeometry(self.x,self.y,self.width,self.height)
 
 class AvatarFactory():
@@ -51,6 +50,6 @@ class AvatarFactory():
         x_values=[97,167,247,327,399]
         img_values = ['sivi.png','zuti.png','zeleni.png','ambulance.png','police.png','bus.png']
         self.x=x_values[random.randint(0,4)]
-        self.img = img_values[random.randint(0,4)]
+        self.img = img_values[random.randint(0,5)]
         self.a = Avatar(self.screen, self.x, self.y, self.width, self.height,self.img)
         return self.a
