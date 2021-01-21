@@ -14,6 +14,10 @@ from PyQt5.QtCore import Qt
 from PyQt5 import QtGui, QtWidgets, QtCore
 from Avatar import AvatarFactory
 from Coin import CoinFactory
+import Avatar
+import Scores
+import window
+import Coin
 
 a=1
 
@@ -40,64 +44,57 @@ class ObjectFactory():
         return  self.a
 
 class TimerObjects:
-    def __init__(self, screen: QWidget):
+    def __init__(self, screen: QWidget, av:Avatar, sc:Scores):
         self.screen = screen
         self.list = QListWidget()
         self.cnt = 0
         self.l=[]
         self.mrs=1
-        self.mrs=1
+        self.napravi=1
+        self.av=av
+        self.sco=sc
 
     #prvi nacin
     def generateObjectWithTimer(self):
         self.ajmoTimer = PyQt5.QtCore.QTimer()
         self.ajmoTimer.timeout.connect(self.createObject)
-        self.ajmoTimer.start(2000)
+
+        self.ajmoTimer.start(200)
 
     def createObject(self):
-        self.mrs=self.mrs+1
-        self.f1 = ObjectFactory(self.screen,self.mrs)
+
+        self.x1, self.y1 = self.av.getCoords()
+        self.krajnjaLevaMoj = self.x1 - 25
+        self.krajnjaDesnaMoj = self.x1 + 25
+        self.krajnjaGornjaMoj = self.y1 -20
         #self.o1 = self.f1.createObject()
         #self.list.insertItem(self.cnt,self.o1)
-        self.l.append(self.f1.createObject())
+
+        if self.napravi%3==0:
+            self.f1 = ObjectFactory(self.screen, self.mrs)
+            self.l.append(self.f1.createObject())
+            self.mrs = self.mrs + 1
+
+
         for item in self.l:
             item.moveMeDown()
+            tempX,tempY=item.getCoords()
+            tempYK=tempY+40
+            if (tempX>self.krajnjaLevaMoj and tempX<self.krajnjaDesnaMoj and (tempYK<self.krajnjaGornjaMoj+50 and tempYK>self.krajnjaGornjaMoj )):
+                self.tr=type(item)
+                if type(item)==Avatar.Avatar:
+                    if item.crko==False:
+                        self.sco.loseLife()
+                        item.crko=True
+                        if self.sco.lifeCount==0:
+                            self.wp = window.PauseWindow()
+                            self.wp.show()
+                            self.screen.hide()
+                else:
+                    self.sco.changeScore()
 
 
+        self.napravi=self.napravi+1
 
 
-
-    #drugi nacin
-    def pokreniThread(self):
-
-        for _ in range(10):
-            time.sleep(1)
-            t1 = threading.Thread(target=self.napraviObjekat)
-            t1.start()
-
-
-    def napraviObjekat(self):
-        self.f1 = ObjectFactory(self.screen)
-        self.o1 = self.f1.createObject()
-
-    #treci nacin
-    def generateObjectWithoutTimer(self):
-        self.f1 = ObjectFactory(self.screen)
-        for _ in range(10):
-            self.o1 = self.f1.createObject()
-            time.sleep(1)
-
-
-    def moveMe(self,a):
-        a.moveMeDown()
-
-
-
-
-
-
-
-
-    def pomerajMe(self,ja):
-        ja.moveMeDown()
 

@@ -17,6 +17,7 @@ class Coin:
         self.width = width
         self.height = height
         self.img = img
+        self.tip='Coin'
 
         self.label = QLabel(screen)
         self.image_pixmap = QPixmap(self.img)
@@ -27,6 +28,11 @@ class Coin:
     def moveMeDown(self):
         self.y = self.y+20
         self.label.setGeometry(self.x,self.y,self.width,self.height)
+
+    def getCoords(self):
+        return self.x,self.y
+
+
 
 class CoinFactory():
     def __init__(self, screen: QWidget):

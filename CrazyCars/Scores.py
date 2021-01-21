@@ -70,7 +70,7 @@ class Scores:
         self.label_6.setNum(self.lifeCount)
 
     def changeScore(self):
-        self.scoreValue = self.scoreValue+1
+        self.scoreValue = self.scoreValue+100
         self.label_2.setNum(self.scoreValue)
 
     def changeLevel(self):

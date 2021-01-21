@@ -16,6 +16,9 @@ class Avatar:
         self.width = width
         self.height = height
         self.img = img
+        self.crko=False
+        self.tip = 'Auto'
+
 
         self.label = QLabel(screen)
         self.image_pixmap = QPixmap(self.img)
@@ -35,8 +38,15 @@ class Avatar:
             self.label.setGeometry(self.x, self.y, self.width, self.height)
 
     def moveMeDown(self):
-        self.y = self.y +40
+        self.y = self.y +28
         self.label.setGeometry(self.x,self.y,self.width,self.height)
+
+    def getCoords(self):
+        return self.x, self.y
+
+
+
+
 
 class AvatarFactory():
     def __init__(self, screen: QWidget):
@@ -48,8 +58,8 @@ class AvatarFactory():
 
     def createRandomAvatar(self):
         x_values=[97,167,247,327,399]
-        img_values = ['sivi.png','zuti.png','zeleni.png','ambulance.png','police.png','bus.png']
+        img_values = ['sivi.png','zuti.png','zeleni.png','ambulance.png','police.png']
         self.x=x_values[random.randint(0,4)]
-        self.img = img_values[random.randint(0,5)]
+        self.img = img_values[random.randint(0,4)]
         self.a = Avatar(self.screen, self.x, self.y, self.width, self.height,self.img)
         return self.a

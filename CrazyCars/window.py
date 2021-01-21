@@ -149,7 +149,7 @@ class PlayWindow(QWidget):
         #avatars
         self.a = Avatar(self)
 
-        self.tO= TimerObjects(self)
+        self.tO= TimerObjects(self,self.a, self.score)
         #Pokretanje sa tajmerom-Prvi nacin
         self.tO.generateObjectWithTimer()
 
@@ -232,17 +232,10 @@ class PauseWindow(QWidget):
         exitButton.setFont(font)
         exitButton.setStyleSheet("background-color:orange")
         exitButton.setObjectName("exitButton")
-        exitButton.setText("LEAVE GAME")
+        exitButton.setText("HOME PAGE ")
 
-        resumeButton = QtWidgets.QPushButton(self)
-        resumeButton.setGeometry(QtCore.QRect(160, 600, 211, 71))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(24)
-        resumeButton.setFont(font)
-        resumeButton.setStyleSheet("background-color:orange")
-        resumeButton.setObjectName("resumeButton")
-        resumeButton.setText("RESUME GAME")
+
+
 
         label = QtWidgets.QLabel(self)
         label.setGeometry(QtCore.QRect(0, 110, 531, 361))
@@ -257,10 +250,10 @@ class PauseWindow(QWidget):
         font.setPointSize(36)
         label_2.setFont(font)
         label_2.setObjectName("label_2")
-        label_2.setText("Game paused!")
+        label_2.setText("Game over!")
 
         exitButton.clicked.connect(self.mainScreen)
-        resumeButton.clicked.connect(self.playScreen)
+
 
     def mainScreen(self):
         self.wm = MainWindow()
