@@ -1,6 +1,6 @@
 import sys
 
-from PyQt5.QtCore import QCoreApplication, QRect, QSize
+from PyQt5.QtCore import QCoreApplication, QRect, QSize, QThread
 from PyQt5.QtGui import QIcon, QCursor, QPainter, QPen, QBrush, QColor, QPixmap, QImage, QPalette
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QDesktopWidget, QPushButton, QHBoxLayout, QVBoxLayout, \
     QLabel
@@ -149,9 +149,17 @@ class PlayWindow(QWidget):
         #avatars
         self.a = Avatar(self)
 
+
         self.tO= TimerObjects(self,self.a, self.score)
+
+        self.thread = QThread()
+        self.moveToThread(self.thread)
+        self.thread.started.connect(self.tO.generateObjectWithTimer)
+        self.thread.start()
+
+
         #Pokretanje sa tajmerom-Prvi nacin
-        self.tO.generateObjectWithTimer()
+        #self.tO.generateObjectWithTimer()
 
         #Pokretanje drugi nacin
         #self.tO.pokreniThread()
