@@ -14,6 +14,7 @@ from PyQt5.QtCore import Qt
 from PyQt5 import QtGui, QtWidgets, QtCore
 from Avatar import AvatarFactory
 from Coin import CoinFactory
+from Zivot import SrceFactory
 import Avatar
 import Scores
 import window
@@ -29,6 +30,7 @@ class ObjectFactory():
     def createObject(self):
         self.avatarFac= AvatarFactory(self.screen)
         self.coinFac = CoinFactory(self.screen)
+        self.zivotFac = SrceFactory(self.screen)
 
         #self.objType = random.randint(0,1)
 
@@ -38,6 +40,8 @@ class ObjectFactory():
 
             self.a = self.coinFac.createRandomCoin()
 
+        elif self.a%5==0:
+            self.a = self.zivotFac.createRandomSrce()
         else:
             self.a = self.avatarFac.createRandomAvatar()
 
