@@ -113,8 +113,3 @@ class TimerObjects:
             item.moveMeDown()
 
         self.napravi = self.napravi + 1
-
-
-
-
-

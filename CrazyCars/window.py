@@ -26,7 +26,7 @@ class MainWindow(QWidget):
     def initUI(self):
         self.setFixedSize(550, 700)
         self.setWindowTitle('Crazy Cars')
-        self.setWindowIcon(QIcon('toy-red-car-isolated-on-white-background-donald-erickson.jpg'))
+        self.setWindowIcon(QIcon('Slike/toy-red-car-isolated-on-white-background-donald-erickson.jpg'))
         self.setStyleSheet("background-color:white")
         # self.setStyleSheet("background-color:Blue")
         self.center()
@@ -47,7 +47,7 @@ class MainWindow(QWidget):
         label.setGeometry(QtCore.QRect(0, 110, 561, 361))
         label.setMinimumSize(QtCore.QSize(550, 0))
         label.setText("")
-        label.setPixmap(QtGui.QPixmap("rsz_lightning-mcqueen-cars.jpg"))
+        label.setPixmap(QtGui.QPixmap("Slike/rsz_lightning-mcqueen-cars.jpg"))
         label.setObjectName("label")
 
         label_2 = QtWidgets.QLabel(self)
@@ -63,13 +63,13 @@ class MainWindow(QWidget):
         label_3 = QtWidgets.QLabel(self)
         label_3.setGeometry(QtCore.QRect(490, 30, 51, 71))
         label_3.setText("")
-        label_3.setPixmap(QtGui.QPixmap("output-onlinepngtools (4).png"))
+        label_3.setPixmap(QtGui.QPixmap("Slike/output-onlinepngtools (4).png"))
         label_3.setObjectName("label_3")
 
         label_4 = QtWidgets.QLabel(self)
         label_4.setGeometry(QtCore.QRect(10, 30, 51, 71))
         label_4.setText("")
-        label_4.setPixmap(QtGui.QPixmap("output-onlinepngtools (4).png"))
+        label_4.setPixmap(QtGui.QPixmap("Slike/output-onlinepngtools (4).png"))
         label_4.setObjectName("label_4")
 
         playButton = QtWidgets.QPushButton(self)
@@ -109,7 +109,7 @@ class PlayWindow(QWidget):
     def initUI(self):
         self.setFixedSize(550, 700)
         self.setWindowTitle('Crazy Cars')
-        self.setWindowIcon(QIcon('toy-red-car-isolated-on-white-background-donald-erickson.jpg'))
+        self.setWindowIcon(QIcon('Slike/toy-red-car-isolated-on-white-background-donald-erickson.jpg'))
 
         self.center()
         self.mainScreen()
@@ -123,12 +123,12 @@ class PlayWindow(QWidget):
 
     def mainScreen(self):
         exit_button = QPushButton("")
-        exit_button.setIcon(QIcon('pause3.png'))
+        exit_button.setIcon(QIcon('Slike/pause3.png'))
         exit_button.setStyleSheet("border: 0px solid black")
         exit_button.setToolTip("Pause game")
         exit_button.setFixedWidth(50)
         exit_button.setFixedHeight(50)
-        oImage = QImage("put2.png")
+        oImage = QImage("Slike/put2.png")
         palette = QPalette()
         palette.setBrush(QPalette.Window, QBrush(oImage))
         self.setPalette(palette)
@@ -202,7 +202,7 @@ class PauseWindow(QWidget):
     def initUI(self):
         self.setFixedSize(550, 700)
         self.setWindowTitle('Pause Crazy Cars')
-        self.setWindowIcon(QIcon('toy-red-car-isolated-on-white-background-donald-erickson.jpg'))
+        self.setWindowIcon(QIcon('Slike/toy-red-car-isolated-on-white-background-donald-erickson.jpg'))
         self.setStyleSheet("background-color:grey")
 
         self.center()
@@ -240,7 +240,7 @@ class PauseWindow(QWidget):
         label = QtWidgets.QLabel(self)
         label.setGeometry(QtCore.QRect(0, 110, 531, 361))
         label.setText("")
-        label.setPixmap(QtGui.QPixmap("rsz_pausepic.png"))
+        label.setPixmap(QtGui.QPixmap("Slike/rsz_pausepic.png"))
         label.setObjectName("label")
 
         label_2 = QtWidgets.QLabel(self)

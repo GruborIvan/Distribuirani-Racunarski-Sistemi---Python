@@ -9,7 +9,7 @@ from PyQt5 import QtCore,QtGui, QtWidgets
 
 
 class Avatar:
-    def __init__(self, screen: QWidget, x: int = 250, y: int=620, width: int=50, height: int=80, img: str='crvenii.png'):
+    def __init__(self, screen: QWidget, x: int = 250, y: int=620, width: int=50, height: int=80, img: str='Slike/crvenii.png'):
 
         self.x = x
         self.y = y
@@ -60,8 +60,8 @@ class AvatarFactory():
 
     def createRandomAvatar(self):
         x_values=[97,167,247,327,399]
-        img_values = ['sivi.png','zuti.png','zeleni.png','ambulance.png','police.png']
+        img_values = ['Slike/sivi.png','Slike/zuti.png','Slike/zeleni.png','Slike/ambulance.png','Slike/police.png','Slike/selfMade.png']
         self.x=x_values[random.randint(0,4)]
-        self.img = img_values[random.randint(0,4)]
+        self.img = img_values[random.randint(0,5)]
         self.a = Avatar(self.screen, self.x, self.y, self.width, self.height,self.img)
         return self.a

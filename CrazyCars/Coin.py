@@ -10,7 +10,7 @@ from PyQt5 import QtGui, QtWidgets, QtCore
 
 
 class Coin:
-    def __init__(self, screen: QWidget, x: int = 110, y: int=0, width: int=25, height: int=25, img: str='rsz_1coin.png'):
+    def __init__(self, screen: QWidget, x: int = 110, y: int=0, width: int=25, height: int=25, img: str='Slike/rsz_1coin.png'):
 
         self.x = x
         self.y = y
