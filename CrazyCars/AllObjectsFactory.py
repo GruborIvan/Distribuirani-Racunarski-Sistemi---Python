@@ -19,6 +19,7 @@ import Avatar
 import Scores
 import window
 import Coin
+import Zivot
 
 a=1
 
@@ -112,6 +113,14 @@ class TimerObjects:
                             self.generateObjectWithTimer()
                         if self.brojCoina > 3:
                             self.brojCoina = 1
+                    item.skloniMeMolimTe()
+            elif type(item) == Zivot.Zivot:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj and tempX < self.krajnjaDesnaMoj and (tempYK <= self.krajnjaGornjaMoj +20 and tempYK >= self.krajnjaGornjaMoj)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.incrementLife()
+
                     item.skloniMeMolimTe()
 
             item.moveMeDown()

@@ -81,3 +81,7 @@ class Scores:
         if self.lifeCount>0:
             self.lifeCount = self.lifeCount-1
             self.label_6.setNum(self.lifeCount)
+
+    def incrementLife(self):
+        self.lifeCount=self.lifeCount+1
+        self.label_6.setNum(self.lifeCount)
