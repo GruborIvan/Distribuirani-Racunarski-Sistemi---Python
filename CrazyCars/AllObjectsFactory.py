@@ -53,20 +53,24 @@ class TimerObjects:
         self.napravi=1
         self.av=av
         self.sco=sc
+        self.brojCoina=0
+        self.idemoBrzinaBre=500
+        self.brojPuta=1
 
     #prvi nacin
     def generateObjectWithTimer(self):
         self.ajmoTimer = PyQt5.QtCore.QTimer()
         self.ajmoTimer.timeout.connect(self.createObject)
 
-        self.ajmoTimer.start(200)
+
+        self.ajmoTimer.start(self.idemoBrzinaBre)
 
     def createObject(self):
 
         self.x1, self.y1 = self.av.getCoords()
         self.krajnjaLevaMoj = self.x1 - 25
         self.krajnjaDesnaMoj = self.x1 + 25
-        self.krajnjaGornjaMoj = self.y1 -20
+        self.krajnjaGornjaMoj = self.y1 - 40
         #self.o1 = self.f1.createObject()
         #self.list.insertItem(self.cnt,self.o1)
 
@@ -75,26 +79,42 @@ class TimerObjects:
             self.l.append(self.f1.createObject())
             self.mrs = self.mrs + 1
 
-
         for item in self.l:
-            item.moveMeDown()
             tempX,tempY=item.getCoords()
-            tempYK=tempY+40
-            if (tempX>self.krajnjaLevaMoj and tempX<self.krajnjaDesnaMoj and (tempYK<self.krajnjaGornjaMoj+50 and tempYK>self.krajnjaGornjaMoj )):
-                self.tr=type(item)
-                if type(item)==Avatar.Avatar:
+            tempYK=tempY+20
+
+            if type(item) == Avatar.Avatar:
+                if (tempX>self.krajnjaLevaMoj and tempX<self.krajnjaDesnaMoj and (tempYK<=self.krajnjaGornjaMoj+20 and tempYK>=self.krajnjaGornjaMoj )):
                     if item.crko==False:
                         self.sco.loseLife()
                         item.crko=True
                         if self.sco.lifeCount==0:
+                            self.ajmoTimer.stop()
                             self.wp = window.PauseWindow()
                             self.wp.show()
-                            self.screen.hide()
-                else:
-                    self.sco.changeScore()
+                            self.screen.close()
+                    item.skloniMeMolimTe()
+            elif type(item) == Coin.Coin:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj and tempX < self.krajnjaDesnaMoj and (tempYK <= self.krajnjaGornjaMoj +20 and tempYK >= self.krajnjaGornjaMoj)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.changeScore()
+                        self.brojCoina = self.brojCoina + 1
+                        if self.brojCoina==3:
+                            self.sco.changeLevel()
+                            self.idemoBrzinaBre=self.idemoBrzinaBre-200
+                            self.ajmoTimer.stop()
+                            self.generateObjectWithTimer()
+                        if self.brojCoina > 3:
+                            self.brojCoina = 1
+                    item.skloniMeMolimTe()
+
+            item.moveMeDown()
+
+        self.napravi = self.napravi + 1
 
 
-        self.napravi=self.napravi+1
 
 
 

@@ -40,7 +40,7 @@ class Scores:
         self.label_3.setObjectName("label_3")
         self.label_3.setText("LEVEL:")
 
-        self.levelValue = 0
+        self.levelValue = 1
         self.label_4 = QtWidgets.QLabel(screen)
         self.label_4.setGeometry(QtCore.QRect(10, 150, 55, 16))
         font = QtGui.QFont()

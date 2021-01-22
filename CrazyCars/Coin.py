@@ -18,6 +18,7 @@ class Coin:
         self.height = height
         self.img = img
         self.tip='Coin'
+        self.crko=False
 
         self.label = QLabel(screen)
         self.image_pixmap = QPixmap(self.img)
@@ -32,6 +33,8 @@ class Coin:
     def getCoords(self):
         return self.x,self.y
 
+    def skloniMeMolimTe(self):
+        self.label.hide()
 
 
 class CoinFactory():

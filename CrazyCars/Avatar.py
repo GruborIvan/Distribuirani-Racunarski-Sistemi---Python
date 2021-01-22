@@ -44,6 +44,8 @@ class Avatar:
     def getCoords(self):
         return self.x, self.y
 
+    def skloniMeMolimTe(self):
+        self.label.hide()
 
 
 
