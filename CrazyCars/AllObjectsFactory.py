@@ -126,3 +126,132 @@ class TimerObjects:
             item.moveMeDown()
 
         self.napravi = self.napravi + 1
+
+
+class TimerObjectsMulti:
+    def __init__(self, screen: QWidget, av1:Avatar,av2:Avatar, sc:Scores):
+        self.screen = screen
+        self.list = QListWidget()
+        self.cnt = 0
+        self.l=[]
+        self.mrs=1
+        self.napravi=1
+        #2 igraca
+        self.av1=av1
+        self.av2=av2
+        self.sco=sc
+        self.brojCoina=0
+        self.idemoBrzinaBre=500
+        self.brojPuta=1
+
+    #prvi nacin
+    def generateObjectWithTimer(self):
+        self.ajmoTimer = PyQt5.QtCore.QTimer()
+        self.ajmoTimer.timeout.connect(self.createObject)
+
+
+        self.ajmoTimer.start(self.idemoBrzinaBre)
+
+    def createObject(self):
+        #2 igraca
+        self.x1, self.y1 = self.av1.getCoords()
+        self.krajnjaLevaMoj1 = self.x1 - 25
+        self.krajnjaDesnaMoj1 = self.x1 + 25
+        self.krajnjaGornjaMoj1 = self.y1 - 40
+
+        self.x2, self.y2 = self.av2.getCoords()
+        self.krajnjaLevaMoj2 = self.x2 - 25
+        self.krajnjaDesnaMoj2 = self.x2 + 25
+        self.krajnjaGornjaMoj2 = self.y2 - 40
+
+        #self.o1 = self.f1.createObject()
+        #self.list.insertItem(self.cnt,self.o1)
+
+        if self.napravi%3==0:
+            self.f1 = ObjectFactory(self.screen, self.mrs)
+            self.l.append(self.f1.createObject())
+            self.mrs = self.mrs + 1
+
+        for item in self.l:
+            tempX,tempY=item.getCoords()
+            tempYK=tempY+20
+
+            #za igraca1
+            if type(item) == Avatar.Avatar:
+                if (tempX>self.krajnjaLevaMoj1 and tempX<self.krajnjaDesnaMoj1 and (tempYK<=self.krajnjaGornjaMoj1+20 and tempYK>=self.krajnjaGornjaMoj1 )):
+                    if item.crko==False:
+                        self.sco.loseLife()
+                        item.crko=True
+                        if self.sco.lifeCount==0:
+                            self.ajmoTimer.stop()
+                            self.wp = window.PauseWindow()
+                            self.wp.show()
+                            self.screen.close()
+                    item.skloniMeMolimTe()
+            elif type(item) == Coin.Coin:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.changeScore()
+                        self.brojCoina = self.brojCoina + 1
+                        if self.brojCoina==3:
+                            self.sco.changeLevel()
+                            self.idemoBrzinaBre=self.idemoBrzinaBre-200
+                            self.ajmoTimer.stop()
+                            self.generateObjectWithTimer()
+                        if self.brojCoina > 3:
+                            self.brojCoina = 1
+                    item.skloniMeMolimTe()
+            elif type(item) == Zivot.Zivot:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.incrementLife()
+
+                    item.skloniMeMolimTe()
+
+
+
+            # za igraca2
+            if type(item) == Avatar.Avatar:
+                if (tempX>self.krajnjaLevaMoj2 and tempX<self.krajnjaDesnaMoj2 and (tempYK<=self.krajnjaGornjaMoj2+20 and tempYK>=self.krajnjaGornjaMoj2 )):
+                    if item.crko==False:
+                        self.sco.loseLife()
+                        item.crko=True
+                        if self.sco.lifeCount==0:
+                            self.ajmoTimer.stop()
+                            self.wp = window.PauseWindow()
+                            self.wp.show()
+                            self.screen.close()
+                    item.skloniMeMolimTe()
+            elif type(item) == Coin.Coin:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.changeScore()
+                        self.brojCoina = self.brojCoina + 1
+                        if self.brojCoina==3:
+                            self.sco.changeLevel()
+                            self.idemoBrzinaBre=self.idemoBrzinaBre-200
+                            self.ajmoTimer.stop()
+                            self.generateObjectWithTimer()
+                        if self.brojCoina > 3:
+                            self.brojCoina = 1
+                    item.skloniMeMolimTe()
+            elif type(item) == Zivot.Zivot:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.incrementLife()
+
+                    item.skloniMeMolimTe()
+
+
+
+            item.moveMeDown()
+
+        self.napravi = self.napravi + 1

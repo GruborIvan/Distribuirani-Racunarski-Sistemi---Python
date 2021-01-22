@@ -10,10 +10,12 @@ from PyQt5 import QtGui, QtWidgets, QtCore
 from Avatar import Avatar
 from Avatar import AvatarFactory
 from Scores import Scores
+from ScoresMulti import ScoresMulti
 from Coin import Coin
 from Coin import CoinFactory
 from AllObjectsFactory import ObjectFactory
 from AllObjectsFactory import TimerObjects
+from AllObjectsFactory import TimerObjectsMulti
 
 
 class MainWindow(QWidget):
@@ -273,7 +275,7 @@ class PlayWindowMulti(QWidget):
 
 
         #scores
-        self.score = Scores(self)
+        self.score = ScoresMulti(self)
 
         #avatars
         self.a1 = Avatar(self,170)
@@ -281,7 +283,7 @@ class PlayWindowMulti(QWidget):
         self.a2 = Avatar(self,330)
         #self.a2.x=350
 
-        self.tO= TimerObjects(self,self.a1, self.score)
+        self.tO= TimerObjectsMulti(self,self.a1,self.a2, self.score)
 
         self.thread = QThread()
         self.moveToThread(self.thread)
@@ -289,14 +291,8 @@ class PlayWindowMulti(QWidget):
         self.thread.start()
 
 
-        #Pokretanje sa tajmerom-Prvi nacin
+        #Pokretanje sa tajmerom-Prvi nacin. bez Thread-a
         #self.tO.generateObjectWithTimer()
-
-        #Pokretanje drugi nacin
-        #self.tO.pokreniThread()
-
-        #Pokretanje treci nacin
-        #self.tO.generateObjectWithoutTimer()
 
         exit_button.clicked.connect(self.pauseScreen)
 
