@@ -1,6 +1,6 @@
 import sys
 
-from PyQt5.QtCore import QCoreApplication, QRect, QSize, QThread
+from PyQt5.QtCore import QCoreApplication, QRect, QSize, QThread, QProcess
 from PyQt5.QtGui import QIcon, QCursor, QPainter, QPen, QBrush, QColor, QPixmap, QImage, QPalette
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QDesktopWidget, QPushButton, QHBoxLayout, QVBoxLayout, \
     QLabel
@@ -141,7 +141,13 @@ class PlayWindow(QWidget):
         vbox.addStretch(1)
         vbox.addLayout(hbox)
         self.setLayout(vbox)
-        self.paintEvent(self)
+
+
+        self.process=QProcess(self)
+        self.process.started.connect(lambda: self.paintEvent(self))
+        self.process.start()
+        #self.paintEvent(self)
+
 
         #scores
         self.score = Scores(self)
