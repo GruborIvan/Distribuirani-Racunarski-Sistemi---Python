@@ -84,9 +84,8 @@ class TimerObjects:
     def generateObjectWithTimer(self):
         self.ajmoTimer = PyQt5.QtCore.QTimer()
         self.ajmoTimer.timeout.connect(self.createObject)
-
-
         self.ajmoTimer.start(self.idemoBrzinaBre)
+
 
     def createObject(self):
 
@@ -104,7 +103,7 @@ class TimerObjects:
 
         for item in self.l:
             tempX,tempY=item.getCoords()
-            tempYK=tempY+20
+            tempYK=tempY+40
 
             if type(item) == Avatar.Avatar:
                 if (tempX>self.krajnjaLevaMoj and tempX<self.krajnjaDesnaMoj and (tempYK<=self.krajnjaGornjaMoj+20 and tempYK>=self.krajnjaGornjaMoj )):
@@ -113,7 +112,7 @@ class TimerObjects:
                         item.crko=True
                         if self.sco.lifeCount==0:
                             self.ajmoTimer.stop()
-                            self.wp = window.PauseWindow()
+                            self.wp = window.PauseWindow(self.sco.scoreValue)
                             self.wp.show()
                             self.screen.close()
                     item.skloniMeMolimTe()

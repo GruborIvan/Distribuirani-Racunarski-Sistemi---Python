@@ -331,8 +331,9 @@ class PlayWindowMulti(QWidget):
 
 class PauseWindow(QWidget):
 
-    def __init__(self):
+    def __init__(self, rez:int):
         super().__init__()
+        self.rez=rez
         self.initUI()
 
     def initUI(self):
@@ -361,7 +362,7 @@ class PauseWindow(QWidget):
         self.setAutoFillBackground(False)
         self.setStyleSheet("background-color: white")
         exitButton = QtWidgets.QPushButton(self)
-        exitButton.setGeometry(QtCore.QRect(160, 500, 211, 71))
+        exitButton.setGeometry(QtCore.QRect(160, 580, 211, 71))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(24)
@@ -378,6 +379,12 @@ class PauseWindow(QWidget):
         label.setText("")
         label.setPixmap(QtGui.QPixmap("Slike/rsz_pausepic.png"))
         label.setObjectName("label")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(180, 500, 200, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("Your score: "+self.rez.__str__())
+
 
         label_2 = QtWidgets.QLabel(self)
         label_2.setGeometry(QtCore.QRect(190, 30, 241, 61))
