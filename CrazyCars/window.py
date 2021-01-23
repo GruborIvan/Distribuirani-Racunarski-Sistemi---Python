@@ -105,11 +105,16 @@ class MainWindow(QWidget):
         exitButton.setText("QUIT")
 
         exitButton.clicked.connect(QCoreApplication.instance().quit)
-        playButton.clicked.connect(self.playScreen)
+        playButton.clicked.connect(self.uputstvoScreen)
         playButtonMulti.clicked.connect(self.playScreenMulti)
 
     def playScreen(self):
         self.w = PlayWindow()
+        self.w.show()
+        self.hide()
+
+    def uputstvoScreen(self):
+        self.w = UputstvoWindow()
         self.w.show()
         self.hide()
 
@@ -513,3 +518,88 @@ class PauseWindowMulti(QWidget):
         self.wp = PlayWindow()
         self.wp.show()
         self.hide()
+
+
+class UputstvoWindow(QWidget):
+
+    def __init__(self):
+        super().__init__()
+
+        self.initUI()
+
+    def initUI(self):
+        self.setFixedSize(550, 700)
+        self.center()
+
+        self.setScreen()
+
+        self.show()
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def setScreen(self):
+        font = QtGui.QFont()
+        font.setPointSize(24)
+
+        self.setFont(font)
+        self.setAutoFillBackground(False)
+        self.setStyleSheet("background-color: white")
+        exitButton = QtWidgets.QPushButton(self)
+        exitButton.setGeometry(QtCore.QRect(160, 480, 211, 71))
+        font = QtGui.QFont()
+        font.setFamily("Playbill")
+        font.setPointSize(24)
+        exitButton.setFont(font)
+        exitButton.setStyleSheet("background-color:orange")
+        exitButton.setText("GOT IT, PLAY")
+
+        exitButton.clicked.connect(self.playScreen)
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(220, 40, 200, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("RULES:")
+
+        label = QtWidgets.QLabel(self)
+        label.setGeometry(QtCore.QRect(170, 110,25, 25))
+        label.setText("")
+        label.setPixmap(QtGui.QPixmap("Slike/rsz_mrs.png"))
+        label.setObjectName("label")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(200, 110, 200, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText(":    + Life")
+
+        label = QtWidgets.QLabel(self)
+        label.setGeometry(QtCore.QRect(170,180, 25, 25))
+        label.setText("")
+        label.setPixmap(QtGui.QPixmap("Slike/rsz_1coin.png"))
+        label.setObjectName("label")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(200, 180, 200, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText(":    Score + 100")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(149, 250, 200, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("Crash:")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(253, 250, 200, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("-  Life")
+
+
+    def playScreen(self):
+        self.wm = PlayWindow()
+        self.wm.show()
+        self.hide()
+
+
