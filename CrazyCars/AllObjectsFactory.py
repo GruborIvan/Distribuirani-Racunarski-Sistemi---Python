@@ -22,8 +22,6 @@ import window
 import Coin
 import Zivot
 
-
-
 class ObjectFactory():
     def __init__(self, screen: QWidget,  x: int = 250):
         self.screen = screen
@@ -49,8 +47,24 @@ class ObjectFactory():
 
         return  self.a
 
+class ObjectFactoryMulti():
+    def __init__(self, screen: QWidget,  x: int = 250):
+        self.screen = screen
+        self.a=x
+
+    def createObject(self):
+        self.avatarFac= AvatarFactory(self.screen)
+        self.zivotFac = SrceFactory(self.screen)
+
+        #self.objType = random.randint(0,1)
 
 
+        if self.a%5==0:
+            self.a = self.zivotFac.createRandomSrce()
+        else:
+            self.a = self.avatarFac.createRandomAvatar()
+
+        return  self.a
 
 class TimerObjects:
     def __init__(self, screen: QWidget, av:Avatar, sc:Scores):
@@ -131,7 +145,6 @@ class TimerObjects:
 
         self.napravi = self.napravi + 1
 
-
 class TimerObjectsMulti:
     def __init__(self, screen: QWidget, av1:Avatar,av2:Avatar, sc:ScoresMulti):
         self.screen = screen
@@ -153,7 +166,7 @@ class TimerObjectsMulti:
         self.ajmoTimer = PyQt5.QtCore.QTimer()
         self.ajmoTimer.timeout.connect(self.createObject)
 
-        if (self.idemoBrzinaBre<100):
+        if (self.idemoBrzinaBre<50):
             self.idemoBrzinaBre=50
 
         self.ajmoTimer.start(self.idemoBrzinaBre)
@@ -174,12 +187,12 @@ class TimerObjectsMulti:
         #self.list.insertItem(self.cnt,self.o1)
 
         if self.napravi%3==0:
-            self.f1 = ObjectFactory(self.screen, self.mrs)
+            self.f1 = ObjectFactoryMulti(self.screen, self.mrs)
             self.l.append(self.f1.createObject())
             self.mrs = self.mrs + 1
 
-        if self.napravi % 45 == 0:
-            self.idemoBrzinaBre = self.idemoBrzinaBre - 200
+        if self.napravi % 30 == 0:
+            self.idemoBrzinaBre = self.idemoBrzinaBre - 50
             self.ajmoTimer.stop()
             self.generateObjectWithTimer()
 
@@ -195,7 +208,7 @@ class TimerObjectsMulti:
                         item.crko=True
                         if self.sco.lifeCount==0:
                             self.ajmoTimer.stop()
-                            self.wp = window.PauseWindowMulti("Player 2","Player 1", self.sco.scoreValuep2)
+                            self.wp = window.PauseWindowMulti("Player 2","Player 1")
                             self.wp.show()
                             self.screen.close()
                     item.skloniMeMolimTe()
@@ -227,7 +240,7 @@ class TimerObjectsMulti:
                         item.crko=True
                         if self.sco.lifeCountp2==0:
                             self.ajmoTimer.stop()
-                            self.wp = window.PauseWindowMulti("Player 1", "Player 2", self.sco.scoreValue)
+                            self.wp = window.PauseWindowMulti("Player 1", "Player 2")
                             self.wp.show()
                             self.screen.close()
                     item.skloniMeMolimTe()

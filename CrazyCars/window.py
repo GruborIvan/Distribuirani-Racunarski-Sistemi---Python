@@ -329,9 +329,6 @@ class PlayWindowMulti(QWidget):
         qp.drawLine(395, 0, 395, 700)
 
 
-
-
-
 class PauseWindow(QWidget):
 
     def __init__(self):
@@ -407,12 +404,11 @@ class PauseWindow(QWidget):
 
 class PauseWindowMulti(QWidget):
 
-    def __init__(self,p1:str,p2:str,pp1:int):
+    def __init__(self,p1:str,p2:str):
         super().__init__()
 
         self.p1=p1
         self.p2=p2
-        self.pp1=pp1
         self.initUI()
 
     def initUI(self):
@@ -441,31 +437,35 @@ class PauseWindowMulti(QWidget):
         font.setPointSize(18)
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(10, 110, 120, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(10, 200, 80, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("Winner:")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(10, 160, 300, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(10, 250, 80, 30))
         self.labelGorep1.setFont(font)
-        self.labelGorep1.setText(self.p1+" : "+self.pp1.__str__()+" points")
+        self.labelGorep1.setText(self.p1)
 
         self.labelGorep2 = QtWidgets.QLabel(self)
-        self.labelGorep2.setGeometry(QtCore.QRect(10, 230, 120, 30))
+        self.labelGorep2.setGeometry(QtCore.QRect(10, 320, 80, 30))
         self.labelGorep2.setFont(font)
         self.labelGorep2.setText("Loser:")
 
         self.labelGorep2 = QtWidgets.QLabel(self)
-        self.labelGorep2.setGeometry(QtCore.QRect(10, 280, 800, 30))
+        self.labelGorep2.setGeometry(QtCore.QRect(10, 370, 80, 30))
         self.labelGorep2.setFont(font)
-        self.labelGorep2.setText(self.p2+" : it doesn't matter how many points you won, you are LOSER!" )
+        self.labelGorep2.setText(self.p2)
 
 
 
         font = QtGui.QFont()
         font.setPointSize(24)
 
-
+        label = QtWidgets.QLabel(self)
+        label.setGeometry(QtCore.QRect(110, 200, 350, 240))
+        label.setText("")
+        label.setPixmap(QtGui.QPixmap("Slike/rsz_1rsz_pausepic.png"))
+        label.setObjectName("label")
 
         self.setFont(font)
         self.setAutoFillBackground(False)
