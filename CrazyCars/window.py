@@ -403,3 +403,106 @@ class PauseWindow(QWidget):
         self.wp = PlayWindow()
         self.wp.show()
         self.hide()
+
+
+class PauseWindowMulti(QWidget):
+
+    def __init__(self,p1:str,p2:str,pp1:int):
+        super().__init__()
+
+        self.p1=p1
+        self.p2=p2
+        self.pp1=pp1
+        self.initUI()
+
+    def initUI(self):
+        self.setFixedSize(550, 700)
+        self.setWindowTitle('Pause Crazy Cars')
+        self.setWindowIcon(QIcon('Slike/toy-red-car-isolated-on-white-background-donald-erickson.jpg'))
+        self.setStyleSheet("background-color:grey")
+
+        self.center()
+
+        self.setScreen()
+
+        self.show()
+
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    def setScreen(self):
+
+        #novo
+        font = QtGui.QFont()
+        font.setFamily("Playbill")
+        font.setPointSize(18)
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(10, 110, 120, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("Winner:")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(10, 160, 300, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText(self.p1+" : "+self.pp1.__str__()+" points")
+
+        self.labelGorep2 = QtWidgets.QLabel(self)
+        self.labelGorep2.setGeometry(QtCore.QRect(10, 230, 120, 30))
+        self.labelGorep2.setFont(font)
+        self.labelGorep2.setText("Loser:")
+
+        self.labelGorep2 = QtWidgets.QLabel(self)
+        self.labelGorep2.setGeometry(QtCore.QRect(10, 280, 800, 30))
+        self.labelGorep2.setFont(font)
+        self.labelGorep2.setText(self.p2+" : it doesn't matter how many points you won, you are LOSER!" )
+
+
+
+        font = QtGui.QFont()
+        font.setPointSize(24)
+
+
+
+        self.setFont(font)
+        self.setAutoFillBackground(False)
+        self.setStyleSheet("background-color: white")
+        exitButton = QtWidgets.QPushButton(self)
+        exitButton.setGeometry(QtCore.QRect(160, 500, 211, 71))
+        font = QtGui.QFont()
+        font.setFamily("Playbill")
+        font.setPointSize(24)
+        exitButton.setFont(font)
+        exitButton.setStyleSheet("background-color:orange")
+        exitButton.setObjectName("exitButton")
+        exitButton.setText("HOME PAGE ")
+
+
+
+
+
+
+        label_2 = QtWidgets.QLabel(self)
+        label_2.setGeometry(QtCore.QRect(190, 30, 241, 61))
+        font = QtGui.QFont()
+        font.setFamily("Playbill")
+        font.setPointSize(36)
+        label_2.setFont(font)
+        label_2.setObjectName("label_2")
+        label_2.setText("Game over!")
+
+        exitButton.clicked.connect(self.mainScreen)
+
+
+    def mainScreen(self):
+        self.wm = MainWindow()
+        self.wm.show()
+        self.hide()
+
+    def playScreen(self):
+        self.wp = PlayWindow()
+        self.wp.show()
+        self.hide()

@@ -17,11 +17,12 @@ from Coin import CoinFactory
 from Zivot import SrceFactory
 import Avatar
 import Scores
+import ScoresMulti
 import window
 import Coin
 import Zivot
 
-a=1
+
 
 class ObjectFactory():
     def __init__(self, screen: QWidget,  x: int = 250):
@@ -47,6 +48,9 @@ class ObjectFactory():
             self.a = self.avatarFac.createRandomAvatar()
 
         return  self.a
+
+
+
 
 class TimerObjects:
     def __init__(self, screen: QWidget, av:Avatar, sc:Scores):
@@ -129,7 +133,7 @@ class TimerObjects:
 
 
 class TimerObjectsMulti:
-    def __init__(self, screen: QWidget, av1:Avatar,av2:Avatar, sc:Scores):
+    def __init__(self, screen: QWidget, av1:Avatar,av2:Avatar, sc:ScoresMulti):
         self.screen = screen
         self.list = QListWidget()
         self.cnt = 0
@@ -149,6 +153,8 @@ class TimerObjectsMulti:
         self.ajmoTimer = PyQt5.QtCore.QTimer()
         self.ajmoTimer.timeout.connect(self.createObject)
 
+        if (self.idemoBrzinaBre<100):
+            self.idemoBrzinaBre=50
 
         self.ajmoTimer.start(self.idemoBrzinaBre)
 
@@ -172,6 +178,11 @@ class TimerObjectsMulti:
             self.l.append(self.f1.createObject())
             self.mrs = self.mrs + 1
 
+        if self.napravi % 45 == 0:
+            self.idemoBrzinaBre = self.idemoBrzinaBre - 200
+            self.ajmoTimer.stop()
+            self.generateObjectWithTimer()
+
         for item in self.l:
             tempX,tempY=item.getCoords()
             tempYK=tempY+20
@@ -180,11 +191,11 @@ class TimerObjectsMulti:
             if type(item) == Avatar.Avatar:
                 if (tempX>self.krajnjaLevaMoj1 and tempX<self.krajnjaDesnaMoj1 and (tempYK<=self.krajnjaGornjaMoj1+20 and tempYK>=self.krajnjaGornjaMoj1 )):
                     if item.crko==False:
-                        self.sco.loseLife()
+                        self.sco.loseLifeP1()
                         item.crko=True
                         if self.sco.lifeCount==0:
                             self.ajmoTimer.stop()
-                            self.wp = window.PauseWindow()
+                            self.wp = window.PauseWindowMulti("Player 2","Player 1", self.sco.scoreValuep2)
                             self.wp.show()
                             self.screen.close()
                     item.skloniMeMolimTe()
@@ -193,36 +204,30 @@ class TimerObjectsMulti:
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
-                        self.sco.changeScore()
+                        self.sco.changeScoreP1()
                         self.brojCoina = self.brojCoina + 1
-                        if self.brojCoina==3:
-                            self.sco.changeLevel()
-                            self.idemoBrzinaBre=self.idemoBrzinaBre-200
-                            self.ajmoTimer.stop()
-                            self.generateObjectWithTimer()
-                        if self.brojCoina > 3:
-                            self.brojCoina = 1
                     item.skloniMeMolimTe()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
-                        self.sco.incrementLife()
+                        self.sco.incrementLifeP1()
 
                     item.skloniMeMolimTe()
 
 
 
-            # za igraca2
+
+            #za igraca2
             if type(item) == Avatar.Avatar:
                 if (tempX>self.krajnjaLevaMoj2 and tempX<self.krajnjaDesnaMoj2 and (tempYK<=self.krajnjaGornjaMoj2+20 and tempYK>=self.krajnjaGornjaMoj2 )):
                     if item.crko==False:
-                        self.sco.loseLife()
+                        self.sco.loseLifeP2()
                         item.crko=True
-                        if self.sco.lifeCount==0:
+                        if self.sco.lifeCountp2==0:
                             self.ajmoTimer.stop()
-                            self.wp = window.PauseWindow()
+                            self.wp = window.PauseWindowMulti("Player 1", "Player 2", self.sco.scoreValue)
                             self.wp.show()
                             self.screen.close()
                     item.skloniMeMolimTe()
@@ -231,27 +236,19 @@ class TimerObjectsMulti:
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
-                        self.sco.changeScore()
+                        self.sco.changeScoreP2()
                         self.brojCoina = self.brojCoina + 1
-                        if self.brojCoina==3:
-                            self.sco.changeLevel()
-                            self.idemoBrzinaBre=self.idemoBrzinaBre-200
-                            self.ajmoTimer.stop()
-                            self.generateObjectWithTimer()
-                        if self.brojCoina > 3:
-                            self.brojCoina = 1
                     item.skloniMeMolimTe()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
-                        self.sco.incrementLife()
+                        self.sco.incrementLifeP2()
 
                     item.skloniMeMolimTe()
 
-
-
             item.moveMeDown()
+
 
         self.napravi = self.napravi + 1

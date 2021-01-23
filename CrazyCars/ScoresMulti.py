@@ -103,19 +103,30 @@ class ScoresMulti:
         self.label_6p2.setNum(self.lifeCount)
 
 
-    def changeScore(self):
+    def changeScoreP1(self):
         self.scoreValue = self.scoreValue+100
         self.label_2.setNum(self.scoreValue)
 
-    def changeLevel(self):
-        self.levelValue = self.levelValue+1
-        self.label_4.setNum(self.levelValue)
+    def changeScoreP2(self):
+        self.scoreValuep2 = self.scoreValuep2+100
+        self.label_2p2.setNum(self.scoreValuep2)
 
-    def loseLife(self):
+
+    def loseLifeP1(self):
         if self.lifeCount>0:
             self.lifeCount = self.lifeCount-1
             self.label_6.setNum(self.lifeCount)
 
-    def incrementLife(self):
+    def loseLifeP2(self):
+        if self.lifeCountp2>0:
+            self.lifeCountp2 = self.lifeCountp2-1
+            self.label_6p2.setNum(self.lifeCountp2)
+
+    def incrementLifeP1(self):
         self.lifeCount=self.lifeCount+1
         self.label_6.setNum(self.lifeCount)
+
+
+    def incrementLifeP2(self):
+        self.lifeCountp2=self.lifeCountp2+1
+        self.label_6p2.setNum(self.lifeCountp2)
