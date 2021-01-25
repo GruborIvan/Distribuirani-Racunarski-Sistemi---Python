@@ -60,8 +60,8 @@ class AvatarFactory():
 
     def createRandomAvatar(self):
         x_values=[97,167,247,327,399]
-        img_values = ['Slike/sivi.png','Slike/zuti.png','Slike/zeleni.png','Slike/ambulance.png','Slike/police.png','Slike/selfMade.png']
+        img_values = ['Slike/sivi.png','Slike/zuti.png','Slike/zeleni.png','Slike/gejParada.png','Slike/police.png','Slike/selfMade.png','Slike/lamboDiablo']
         self.x=x_values[random.randint(0,4)]
-        self.img = img_values[random.randint(0,5)]
+        self.img = img_values[random.randint(0,6)]
         self.a = Avatar(self.screen, self.x, self.y, self.width, self.height,self.img)
         return self.a
