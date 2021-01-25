@@ -754,9 +754,9 @@ class PauseWindowChampF(QWidget):
         font.setPointSize(18)
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(10, 200, 80, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(10, 200, 140, 30))
         self.labelGorep1.setFont(font)
-        self.labelGorep1.setText("Winner:")
+        self.labelGorep1.setText("CHAMPION IS:")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
         self.labelGorep1.setGeometry(QtCore.QRect(10, 250, 80, 30))
@@ -770,7 +770,7 @@ class PauseWindowChampF(QWidget):
         font.setPointSize(24)
 
         label = QtWidgets.QLabel(self)
-        label.setGeometry(QtCore.QRect(110, 200, 350, 240))
+        label.setGeometry(QtCore.QRect(140, 200, 350, 240))
         label.setText("")
         label.setPixmap(QtGui.QPixmap("Slike/rsz_1rsz_pausepic.png"))
         label.setObjectName("label")
@@ -779,7 +779,7 @@ class PauseWindowChampF(QWidget):
         self.setAutoFillBackground(False)
         self.setStyleSheet("background-color: white")
         exitButton = QtWidgets.QPushButton(self)
-        exitButton.setGeometry(QtCore.QRect(160, 500, 211, 71))
+        exitButton.setGeometry(QtCore.QRect(190, 550, 211, 71))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(24)
@@ -797,6 +797,15 @@ class PauseWindowChampF(QWidget):
         label_2.setFont(font)
         label_2.setObjectName("label_2")
         label_2.setText("Game over!")
+
+        label_22 = QtWidgets.QLabel(self)
+        label_22.setGeometry(QtCore.QRect(120, 450, 321, 61))
+        font = QtGui.QFont()
+        font.setFamily("Playbill")
+        font.setPointSize(24)
+        label_22.setFont(font)
+        label_22.setObjectName("label_2")
+        label_22.setText("AWARD: 1 extra point on exam!")
 
         exitButton.clicked.connect(self.playWindowChamp)
 
@@ -1046,6 +1055,7 @@ class UputstvoWindowChampSF2(QWidget):
         self.wm = PlayWindowChampSF2(self.pob1)
         self.wm.show()
         self.hide()
+
 
 class UputstvoWindowChampF(QWidget):
     def __init__(self,pob1:str="", pob2:str=""):
