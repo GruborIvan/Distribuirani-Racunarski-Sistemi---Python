@@ -23,50 +23,9 @@ class ScoresMulti:
         self.labelGorep2.setFont(font)
         self.labelGorep2.setText("Player 2:")
 
-        # score label player1
-        self.label = QtWidgets.QLabel(screen)
-        self.label.setGeometry(QtCore.QRect(10, 90, 55, 21))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(18)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
-        self.label.setText("SCORE:")
-
-        self.scoreValue=0
-        self.label_2 = QtWidgets.QLabel(screen)
-        self.label_2.setGeometry(QtCore.QRect(10, 120, 55, 16))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(18)
-        self.label_2.setFont(font)
-        self.label_2.setObjectName("label_2")
-        self.label_2.setNum(self.scoreValue)
-
-        # score label player2
-        self.labelp2 = QtWidgets.QLabel(screen)
-        self.labelp2.setGeometry(QtCore.QRect(470, 90, 55, 21))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(18)
-        self.labelp2.setFont(font)
-        self.labelp2.setObjectName("label")
-        self.labelp2.setText("SCORE:")
-
-        self.scoreValuep2 = 0
-        self.label_2p2 = QtWidgets.QLabel(screen)
-        self.label_2p2.setGeometry(QtCore.QRect(470, 120, 55, 16))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(18)
-        self.label_2p2.setFont(font)
-        self.label_2p2.setObjectName("label_2")
-        self.label_2p2.setNum(self.scoreValue)
-
-
         # life label player 1
         self.label_5 = QtWidgets.QLabel(screen)
-        self.label_5.setGeometry(QtCore.QRect(10, 160, 55, 21))
+        self.label_5.setGeometry(QtCore.QRect(10, 110, 55, 21))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(18)
@@ -76,7 +35,7 @@ class ScoresMulti:
 
         self.lifeCount = 3
         self.label_6 = QtWidgets.QLabel(screen)
-        self.label_6.setGeometry(QtCore.QRect(10, 190, 55, 21))
+        self.label_6.setGeometry(QtCore.QRect(10, 140, 55, 21))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(18)
@@ -85,7 +44,7 @@ class ScoresMulti:
 
         # life label player 2
         self.label_5p2 = QtWidgets.QLabel(screen)
-        self.label_5p2.setGeometry(QtCore.QRect(470, 160, 55, 21))
+        self.label_5p2.setGeometry(QtCore.QRect(470, 110, 55, 21))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(18)
@@ -95,7 +54,7 @@ class ScoresMulti:
 
         self.lifeCountp2 = 3
         self.label_6p2 = QtWidgets.QLabel(screen)
-        self.label_6p2.setGeometry(QtCore.QRect(470, 190, 55, 21))
+        self.label_6p2.setGeometry(QtCore.QRect(470, 140, 55, 21))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(18)
@@ -147,50 +106,10 @@ class ScoresChampSF2:
         self.labelGorep2.setFont(font)
         self.labelGorep2.setText("Player 4:")
 
-        # score label player1
-        self.label = QtWidgets.QLabel(screen)
-        self.label.setGeometry(QtCore.QRect(10, 90, 55, 21))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(18)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
-        self.label.setText("SCORE:")
-
-        self.scoreValue=0
-        self.label_2 = QtWidgets.QLabel(screen)
-        self.label_2.setGeometry(QtCore.QRect(10, 120, 55, 16))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(18)
-        self.label_2.setFont(font)
-        self.label_2.setObjectName("label_2")
-        self.label_2.setNum(self.scoreValue)
-
-        # score label player2
-        self.labelp2 = QtWidgets.QLabel(screen)
-        self.labelp2.setGeometry(QtCore.QRect(470, 90, 55, 21))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(18)
-        self.labelp2.setFont(font)
-        self.labelp2.setObjectName("label")
-        self.labelp2.setText("SCORE:")
-
-        self.scoreValuep2 = 0
-        self.label_2p2 = QtWidgets.QLabel(screen)
-        self.label_2p2.setGeometry(QtCore.QRect(470, 120, 55, 16))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(18)
-        self.label_2p2.setFont(font)
-        self.label_2p2.setObjectName("label_2")
-        self.label_2p2.setNum(self.scoreValue)
-
 
         # life label player 1
         self.label_5 = QtWidgets.QLabel(screen)
-        self.label_5.setGeometry(QtCore.QRect(10, 160, 55, 21))
+        self.label_5.setGeometry(QtCore.QRect(10, 110, 55, 21))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(18)
@@ -200,7 +119,7 @@ class ScoresChampSF2:
 
         self.lifeCount = 3
         self.label_6 = QtWidgets.QLabel(screen)
-        self.label_6.setGeometry(QtCore.QRect(10, 190, 55, 21))
+        self.label_6.setGeometry(QtCore.QRect(10, 140, 55, 21))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(18)
@@ -209,7 +128,7 @@ class ScoresChampSF2:
 
         # life label player 2
         self.label_5p2 = QtWidgets.QLabel(screen)
-        self.label_5p2.setGeometry(QtCore.QRect(470, 160, 55, 21))
+        self.label_5p2.setGeometry(QtCore.QRect(470, 110, 55, 21))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(18)
@@ -219,7 +138,7 @@ class ScoresChampSF2:
 
         self.lifeCountp2 = 3
         self.label_6p2 = QtWidgets.QLabel(screen)
-        self.label_6p2.setGeometry(QtCore.QRect(470, 190, 55, 21))
+        self.label_6p2.setGeometry(QtCore.QRect(470, 140, 55, 21))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(18)
@@ -276,50 +195,10 @@ class ScoresChampF:
         self.labelGorep2.setFont(font)
         self.labelGorep2.setText(self.pob2)
 
-        # score label player1
-        self.label = QtWidgets.QLabel(screen)
-        self.label.setGeometry(QtCore.QRect(10, 90, 55, 21))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(18)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
-        self.label.setText("SCORE:")
-
-        self.scoreValue=0
-        self.label_2 = QtWidgets.QLabel(screen)
-        self.label_2.setGeometry(QtCore.QRect(10, 120, 55, 16))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(18)
-        self.label_2.setFont(font)
-        self.label_2.setObjectName("label_2")
-        self.label_2.setNum(self.scoreValue)
-
-        # score label player2
-        self.labelp2 = QtWidgets.QLabel(screen)
-        self.labelp2.setGeometry(QtCore.QRect(470, 90, 55, 21))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(18)
-        self.labelp2.setFont(font)
-        self.labelp2.setObjectName("label")
-        self.labelp2.setText("SCORE:")
-
-        self.scoreValuep2 = 0
-        self.label_2p2 = QtWidgets.QLabel(screen)
-        self.label_2p2.setGeometry(QtCore.QRect(470, 120, 55, 16))
-        font = QtGui.QFont()
-        font.setFamily("Playbill")
-        font.setPointSize(18)
-        self.label_2p2.setFont(font)
-        self.label_2p2.setObjectName("label_2")
-        self.label_2p2.setNum(self.scoreValue)
-
 
         # life label player 1
         self.label_5 = QtWidgets.QLabel(screen)
-        self.label_5.setGeometry(QtCore.QRect(10, 160, 55, 21))
+        self.label_5.setGeometry(QtCore.QRect(10, 110, 55, 21))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(18)
@@ -329,7 +208,7 @@ class ScoresChampF:
 
         self.lifeCount = 3
         self.label_6 = QtWidgets.QLabel(screen)
-        self.label_6.setGeometry(QtCore.QRect(10, 190, 55, 21))
+        self.label_6.setGeometry(QtCore.QRect(10, 140, 55, 21))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(18)
@@ -338,7 +217,7 @@ class ScoresChampF:
 
         # life label player 2
         self.label_5p2 = QtWidgets.QLabel(screen)
-        self.label_5p2.setGeometry(QtCore.QRect(470, 160, 55, 21))
+        self.label_5p2.setGeometry(QtCore.QRect(470, 110, 55, 21))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(18)
@@ -348,7 +227,7 @@ class ScoresChampF:
 
         self.lifeCountp2 = 3
         self.label_6p2 = QtWidgets.QLabel(screen)
-        self.label_6p2.setGeometry(QtCore.QRect(470, 190, 55, 21))
+        self.label_6p2.setGeometry(QtCore.QRect(470, 140, 55, 21))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(18)
