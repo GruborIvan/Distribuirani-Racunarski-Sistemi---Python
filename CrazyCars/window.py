@@ -892,6 +892,26 @@ class UputstvoWindow(QWidget):
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("-  Life")
 
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(149, 320, 200, 30))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("KEY A:")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(253, 320, 200, 30))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText(" Move Left")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(149, 390, 200, 30))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("KEY D:")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(253, 390, 200, 30))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText(" Move Right")
+
 
     def playScreen(self):
         self.wm = PlayWindow()
@@ -928,7 +948,7 @@ class UputstvoWindowMulti(QWidget):
         self.setAutoFillBackground(False)
         self.setStyleSheet("background-color: white")
         exitButton = QtWidgets.QPushButton(self)
-        exitButton.setGeometry(QtCore.QRect(160, 480, 211, 71))
+        exitButton.setGeometry(QtCore.QRect(160, 600, 211, 71))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(24)
@@ -939,36 +959,71 @@ class UputstvoWindowMulti(QWidget):
         exitButton.clicked.connect(self.playScreen)
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(220, 40, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(229, 110, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("RULES:")
 
         label = QtWidgets.QLabel(self)
-        label.setGeometry(QtCore.QRect(170, 110, 25, 25))
+        label.setGeometry(QtCore.QRect(49, 180, 25, 25))
         label.setText("")
         label.setPixmap(QtGui.QPixmap("Slike/rsz_mrs.png"))
         label.setObjectName("label")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(200, 110, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(77, 180, 200, 30))
         self.labelGorep1.setFont(font)
-        self.labelGorep1.setText(":    + Life")
+        self.labelGorep1.setText(":")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(153, 180, 200, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("+ Life")
 
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(149, 160, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(49, 230, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("Crash:")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(253, 160, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(153, 230, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("-  Life")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(63, 220, 450, 100))
+        self.labelGorep1.setGeometry(QtCore.QRect(15, 10, 550, 100))
         self.labelGorep1.setFont(font)
-        self.labelGorep1.setText("Winner is the one who stays alive longer!")
+        self.labelGorep1.setStyleSheet("color:Red")
+        self.labelGorep1.setText("WINNER IS THE ONE WHO STAYS ALIVE LONGER")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(219, 300, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setStyleSheet("color:Red")
+        self.labelGorep11.setText("Player 1:")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(59, 350, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("KEY A - Move Left, KEY D - Move Right")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(249, 420, 250, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("VS")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(219, 490, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setStyleSheet("color:Red")
+        self.labelGorep11.setText("Player 2:")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(59, 540, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("KEY J - Move Left, KEY L - Move Right")
+
+
 
     def playScreen(self):
         self.wm = PlayWindowMulti()
@@ -1004,7 +1059,7 @@ class UputstvoWindowChampSF2(QWidget):
         self.setAutoFillBackground(False)
         self.setStyleSheet("background-color: white")
         exitButton = QtWidgets.QPushButton(self)
-        exitButton.setGeometry(QtCore.QRect(160, 480, 211, 71))
+        exitButton.setGeometry(QtCore.QRect(160, 600, 211, 71))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(24)
@@ -1015,41 +1070,68 @@ class UputstvoWindowChampSF2(QWidget):
         exitButton.clicked.connect(self.playScreen)
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(220, 40, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(229, 110, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("RULES:")
 
         label = QtWidgets.QLabel(self)
-        label.setGeometry(QtCore.QRect(170, 110, 25, 25))
+        label.setGeometry(QtCore.QRect(49, 180, 25, 25))
         label.setText("")
         label.setPixmap(QtGui.QPixmap("Slike/rsz_mrs.png"))
         label.setObjectName("label")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(200, 110, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(77, 180, 200, 30))
         self.labelGorep1.setFont(font)
-        self.labelGorep1.setText(":    + Life")
-
+        self.labelGorep1.setText(":")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(149, 160, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(153, 180, 200, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("+ Life")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(49, 230, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("Crash:")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(253, 160, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(153, 230, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("-  Life")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(63, 220, 450, 150))
+        self.labelGorep1.setGeometry(QtCore.QRect(15, 10, 550, 100))
         self.labelGorep1.setFont(font)
-        self.labelGorep1.setText("Winner is the one who stays alive longer!")
+        self.labelGorep1.setStyleSheet("color:Red")
+        self.labelGorep1.setText("WINNER IS THE ONE WHO STAYS ALIVE LONGER")
 
-        self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(63, 320, 450, 100))
-        self.labelGorep1.setFont(font)
-        self.labelGorep1.setText("Player 3 vs Player 4")
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(219, 300, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setStyleSheet("color:Red")
+        self.labelGorep11.setText("Player 3:")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(59, 350, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("KEY A - Move Left, KEY D - Move Right")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(249, 420, 250, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("VS")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(219, 490, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setStyleSheet("color:Red")
+        self.labelGorep11.setText("Player 4:")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(59, 540, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("KEY J - Move Left, KEY L - Move Right")
 
     def playScreen(self):
         self.wm = PlayWindowChampSF2(self.pob1)
@@ -1086,7 +1168,7 @@ class UputstvoWindowChampF(QWidget):
         self.setAutoFillBackground(False)
         self.setStyleSheet("background-color: white")
         exitButton = QtWidgets.QPushButton(self)
-        exitButton.setGeometry(QtCore.QRect(160, 480, 211, 71))
+        exitButton.setGeometry(QtCore.QRect(160, 600, 211, 71))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(24)
@@ -1097,41 +1179,68 @@ class UputstvoWindowChampF(QWidget):
         exitButton.clicked.connect(self.playScreen)
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(220, 40, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(229, 110, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("RULES:")
 
         label = QtWidgets.QLabel(self)
-        label.setGeometry(QtCore.QRect(170, 110, 25, 25))
+        label.setGeometry(QtCore.QRect(49, 180, 25, 25))
         label.setText("")
         label.setPixmap(QtGui.QPixmap("Slike/rsz_mrs.png"))
         label.setObjectName("label")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(200, 110, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(77, 180, 200, 30))
         self.labelGorep1.setFont(font)
-        self.labelGorep1.setText(":    + Life")
-
+        self.labelGorep1.setText(":")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(149, 160, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(153, 180, 200, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("+ Life")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(49, 230, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("Crash:")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(253, 160, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(153, 230, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("-  Life")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(63, 220, 450, 150))
+        self.labelGorep1.setGeometry(QtCore.QRect(15, 10, 550, 100))
         self.labelGorep1.setFont(font)
-        self.labelGorep1.setText("Winner is the one who stays alive longer!")
+        self.labelGorep1.setStyleSheet("color:Red")
+        self.labelGorep1.setText("WINNER IS THE ONE WHO STAYS ALIVE LONGER")
 
-        self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(63, 320, 450, 100))
-        self.labelGorep1.setFont(font)
-        self.labelGorep1.setText(self.pob1+" vs "+self.pob2)
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(219, 300, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setStyleSheet("color:Red")
+        self.labelGorep11.setText(self.pob1)
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(59, 350, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("KEY A - Move Left, KEY D - Move Right")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(249, 420, 250, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("VS")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(219, 490, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setStyleSheet("color:Red")
+        self.labelGorep11.setText(self.pob2)
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(59, 540, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("KEY J - Move Left, KEY L - Move Right")
 
     def playScreen(self):
         self.wm = PlayWindowChampF(self.pob1,self.pob2)
@@ -1167,7 +1276,7 @@ class UputstvoWindowChampSF1(QWidget):
         self.setAutoFillBackground(False)
         self.setStyleSheet("background-color: white")
         exitButton = QtWidgets.QPushButton(self)
-        exitButton.setGeometry(QtCore.QRect(160, 480, 211, 71))
+        exitButton.setGeometry(QtCore.QRect(160, 600, 211, 71))
         font = QtGui.QFont()
         font.setFamily("Playbill")
         font.setPointSize(24)
@@ -1178,41 +1287,68 @@ class UputstvoWindowChampSF1(QWidget):
         exitButton.clicked.connect(self.playScreen)
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(220, 40, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(229, 110, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("RULES:")
 
         label = QtWidgets.QLabel(self)
-        label.setGeometry(QtCore.QRect(170, 110, 25, 25))
+        label.setGeometry(QtCore.QRect(49, 180, 25, 25))
         label.setText("")
         label.setPixmap(QtGui.QPixmap("Slike/rsz_mrs.png"))
         label.setObjectName("label")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(200, 110, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(77, 180, 200, 30))
         self.labelGorep1.setFont(font)
-        self.labelGorep1.setText(":    + Life")
-
+        self.labelGorep1.setText(":")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(149, 160, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(153, 180, 200, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("+ Life")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(49, 230, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("Crash:")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(253, 160, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(153, 230, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("-  Life")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(63, 220, 450, 150))
+        self.labelGorep1.setGeometry(QtCore.QRect(15, 10, 550, 100))
         self.labelGorep1.setFont(font)
-        self.labelGorep1.setText("Winner is the one who stays alive longer!")
+        self.labelGorep1.setStyleSheet("color:Red")
+        self.labelGorep1.setText("WINNER IS THE ONE WHO STAYS ALIVE LONGER")
 
-        self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(63, 320, 450, 100))
-        self.labelGorep1.setFont(font)
-        self.labelGorep1.setText("Player 1 vs Player 2")
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(219, 300, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setStyleSheet("color:Red")
+        self.labelGorep11.setText("Player 1:")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(59, 350, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("KEY A - Move Left, KEY D - Move Right")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(249, 420, 250, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("VS")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(219, 490, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setStyleSheet("color:Red")
+        self.labelGorep11.setText("Player 2:")
+
+        self.labelGorep11 = QtWidgets.QLabel(self)
+        self.labelGorep11.setGeometry(QtCore.QRect(59, 540, 500, 50))
+        self.labelGorep11.setFont(font)
+        self.labelGorep11.setText("KEY J - Move Left, KEY L - Move Right")
 
     def playScreen(self):
         self.wm = PlayWindowChampSF1()
