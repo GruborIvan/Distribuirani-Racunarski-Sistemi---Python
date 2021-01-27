@@ -969,13 +969,45 @@ class UputstvoWindowMulti(QWidget):
         label.setPixmap(QtGui.QPixmap("Slike/rsz_mrs.png"))
         label.setObjectName("label")
 
+
+        #pregrade
+        self.labelGorep1p1 = QtWidgets.QLabel(self)
+        self.labelGorep1p1.setGeometry(QtCore.QRect(55, 55, 425, 30))
+        self.labelGorep1p1.setFont(font)
+        self.labelGorep1p1.setText("-"*135)
+
+        self.labelGorep1p2 = QtWidgets.QLabel(self)
+        self.labelGorep1p2.setGeometry(QtCore.QRect(55, 280, 425, 30))
+        self.labelGorep1p2.setFont(font)
+        self.labelGorep1p2.setText("-" * 135)
+
+        #bomba
+        labelb = QtWidgets.QLabel(self)
+        labelb.setGeometry(QtCore.QRect(299, 180, 25, 25))
+        labelb.setText("")
+        labelb.setPixmap(QtGui.QPixmap("Slike/bomba3.png"))
+        labelb.setObjectName("label")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(327, 180, 20, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText(":")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(355, 180, 180, 40))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("- Opponent's Life")
+
+
         self.labelGorep1 = QtWidgets.QLabel(self)
         self.labelGorep1.setGeometry(QtCore.QRect(77, 180, 200, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText(":")
 
+
+
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(153, 180, 200, 30))
+        self.labelGorep1.setGeometry(QtCore.QRect(153, 180, 100, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("+ Life")
 
@@ -991,7 +1023,7 @@ class UputstvoWindowMulti(QWidget):
         self.labelGorep1.setText("-  Life")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(15, 10, 550, 100))
+        self.labelGorep1.setGeometry(QtCore.QRect(15, 10, 550, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setStyleSheet("color:Red")
         self.labelGorep1.setText("WINNER IS THE ONE WHO STAYS ALIVE LONGER")
@@ -1090,6 +1122,35 @@ class UputstvoWindowChampSF2(QWidget):
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("+ Life")
 
+        # pregrade
+        self.labelGorep1p1 = QtWidgets.QLabel(self)
+        self.labelGorep1p1.setGeometry(QtCore.QRect(55, 55, 425, 30))
+        self.labelGorep1p1.setFont(font)
+        self.labelGorep1p1.setText("-" * 135)
+
+        self.labelGorep1p2 = QtWidgets.QLabel(self)
+        self.labelGorep1p2.setGeometry(QtCore.QRect(55, 280, 425, 30))
+        self.labelGorep1p2.setFont(font)
+        self.labelGorep1p2.setText("-" * 135)
+
+
+        # bomba
+        labelb = QtWidgets.QLabel(self)
+        labelb.setGeometry(QtCore.QRect(299, 180, 25, 25))
+        labelb.setText("")
+        labelb.setPixmap(QtGui.QPixmap("Slike/bomba3.png"))
+        labelb.setObjectName("label")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(327, 180, 20, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText(":")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(355, 180, 180, 40))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("- Opponent's Life")
+
         self.labelGorep1 = QtWidgets.QLabel(self)
         self.labelGorep1.setGeometry(QtCore.QRect(49, 230, 200, 30))
         self.labelGorep1.setFont(font)
@@ -1101,7 +1162,7 @@ class UputstvoWindowChampSF2(QWidget):
         self.labelGorep1.setText("-  Life")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(15, 10, 550, 100))
+        self.labelGorep1.setGeometry(QtCore.QRect(15, 10, 550, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setStyleSheet("color:Red")
         self.labelGorep1.setText("WINNER IS THE ONE WHO STAYS ALIVE LONGER")
@@ -1199,6 +1260,34 @@ class UputstvoWindowChampF(QWidget):
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("+ Life")
 
+        # pregrade
+        self.labelGorep1p1 = QtWidgets.QLabel(self)
+        self.labelGorep1p1.setGeometry(QtCore.QRect(55, 55, 425, 30))
+        self.labelGorep1p1.setFont(font)
+        self.labelGorep1p1.setText("-" * 135)
+
+        self.labelGorep1p2 = QtWidgets.QLabel(self)
+        self.labelGorep1p2.setGeometry(QtCore.QRect(55, 280, 425, 30))
+        self.labelGorep1p2.setFont(font)
+        self.labelGorep1p2.setText("-" * 135)
+
+        # bomba
+        labelb = QtWidgets.QLabel(self)
+        labelb.setGeometry(QtCore.QRect(299, 180, 25, 25))
+        labelb.setText("")
+        labelb.setPixmap(QtGui.QPixmap("Slike/bomba3.png"))
+        labelb.setObjectName("label")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(327, 180, 20, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText(":")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(355, 180, 180, 40))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("- Opponent's Life")
+
         self.labelGorep1 = QtWidgets.QLabel(self)
         self.labelGorep1.setGeometry(QtCore.QRect(49, 230, 200, 30))
         self.labelGorep1.setFont(font)
@@ -1210,7 +1299,7 @@ class UputstvoWindowChampF(QWidget):
         self.labelGorep1.setText("-  Life")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(15, 10, 550, 100))
+        self.labelGorep1.setGeometry(QtCore.QRect(15, 10, 550, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setStyleSheet("color:Red")
         self.labelGorep1.setText("WINNER IS THE ONE WHO STAYS ALIVE LONGER")
@@ -1307,6 +1396,34 @@ class UputstvoWindowChampSF1(QWidget):
         self.labelGorep1.setFont(font)
         self.labelGorep1.setText("+ Life")
 
+        # pregrade
+        self.labelGorep1p1 = QtWidgets.QLabel(self)
+        self.labelGorep1p1.setGeometry(QtCore.QRect(55, 55, 425, 30))
+        self.labelGorep1p1.setFont(font)
+        self.labelGorep1p1.setText("-" * 135)
+
+        self.labelGorep1p2 = QtWidgets.QLabel(self)
+        self.labelGorep1p2.setGeometry(QtCore.QRect(55, 280, 425, 30))
+        self.labelGorep1p2.setFont(font)
+        self.labelGorep1p2.setText("-" * 135)
+
+        # bomba
+        labelb = QtWidgets.QLabel(self)
+        labelb.setGeometry(QtCore.QRect(299, 180, 25, 25))
+        labelb.setText("")
+        labelb.setPixmap(QtGui.QPixmap("Slike/bomba3.png"))
+        labelb.setObjectName("label")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(327, 180, 20, 30))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText(":")
+
+        self.labelGorep1 = QtWidgets.QLabel(self)
+        self.labelGorep1.setGeometry(QtCore.QRect(355, 180, 180, 40))
+        self.labelGorep1.setFont(font)
+        self.labelGorep1.setText("- Opponent's Life")
+
         self.labelGorep1 = QtWidgets.QLabel(self)
         self.labelGorep1.setGeometry(QtCore.QRect(49, 230, 200, 30))
         self.labelGorep1.setFont(font)
@@ -1318,7 +1435,7 @@ class UputstvoWindowChampSF1(QWidget):
         self.labelGorep1.setText("-  Life")
 
         self.labelGorep1 = QtWidgets.QLabel(self)
-        self.labelGorep1.setGeometry(QtCore.QRect(15, 10, 550, 100))
+        self.labelGorep1.setGeometry(QtCore.QRect(15, 10, 550, 30))
         self.labelGorep1.setFont(font)
         self.labelGorep1.setStyleSheet("color:Red")
         self.labelGorep1.setText("WINNER IS THE ONE WHO STAYS ALIVE LONGER")
