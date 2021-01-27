@@ -15,12 +15,14 @@ from PyQt5 import QtGui, QtWidgets, QtCore
 from Avatar import AvatarFactory
 from Coin import CoinFactory
 from Zivot import SrceFactory
+from Bomba import BombaFactory
 import Avatar
 import Scores
 import ScoresMulti
 import window
 import Coin
 import Zivot
+import Bomba
 
 class ObjectFactory():
     def __init__(self, screen: QWidget,  x: int = 250):
@@ -55,12 +57,15 @@ class ObjectFactoryMulti():
     def createObject(self):
         self.avatarFac= AvatarFactory(self.screen)
         self.zivotFac = SrceFactory(self.screen)
+        self.bombaFac = BombaFactory(self.screen)
 
         #self.objType = random.randint(0,1)
 
 
         if self.a%5==0:
             self.a = self.zivotFac.createRandomSrce()
+        elif self.a%9==0:
+            self.a=self.bombaFac.createRandomBomba()
         else:
             self.a = self.avatarFac.createRandomAvatar()
 
@@ -139,6 +144,7 @@ class TimerObjects:
                         self.sco.incrementLife()
 
                     item.skloniMeMolimTe()
+
 
             item.moveMeDown()
 
@@ -227,6 +233,19 @@ class TimerObjectsMulti:
                         self.sco.incrementLifeP1()
 
                     item.skloniMeMolimTe()
+            elif type(item) == Bomba.Bomba:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.decLifeP2()
+                        if self.sco.lifeCountp2==0:
+                            self.ajmoTimer.stop()
+                            self.wp = window.PauseWindowMulti("Player 1","Player 2")
+                            self.wp.show()
+                            self.screen.close()
+                    item.skloniMeMolimTe()
+
 
 
 
@@ -258,6 +277,19 @@ class TimerObjectsMulti:
                         item.crko = True
                         self.sco.incrementLifeP2()
 
+                    item.skloniMeMolimTe()
+
+            elif type(item) == Bomba.Bomba:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.decLifeP1()
+                        if self.sco.lifeCount==0:
+                            self.ajmoTimer.stop()
+                            self.wp = window.PauseWindowMulti("Player 2","Player 1")
+                            self.wp.show()
+                            self.screen.close()
                     item.skloniMeMolimTe()
 
             item.moveMeDown()
