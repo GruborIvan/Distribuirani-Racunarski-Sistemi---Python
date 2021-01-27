@@ -111,7 +111,7 @@ class TimerObjects:
             tempYK=tempY+40
 
             if type(item) == Avatar.Avatar:
-                if (tempX>self.krajnjaLevaMoj and tempX<self.krajnjaDesnaMoj and (tempYK<=self.krajnjaGornjaMoj+20 and tempYK>=self.krajnjaGornjaMoj )):
+                if (tempX>self.krajnjaLevaMoj and tempX<self.krajnjaDesnaMoj and (tempYK<=self.krajnjaGornjaMoj+120 and tempYK>=self.krajnjaGornjaMoj )):
                     if item.crko==False:
                         self.sco.loseLife()
                         item.crko=True
@@ -123,14 +123,19 @@ class TimerObjects:
                     item.skloniMeMolimTe()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj and tempX < self.krajnjaDesnaMoj and (tempYK <= self.krajnjaGornjaMoj +20 and tempYK >= self.krajnjaGornjaMoj)):
+                if (tempX > self.krajnjaLevaMoj and tempX < self.krajnjaDesnaMoj and (tempYK <= self.krajnjaGornjaMoj +80 and tempYK >= self.krajnjaGornjaMoj)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.changeScore()
                         self.brojCoina = self.brojCoina + 1
                         if self.brojCoina==3:
                             self.sco.changeLevel()
-                            self.idemoBrzinaBre=self.idemoBrzinaBre-200
+                            if self.idemoBrzinaBre>100:
+                                self.idemoBrzinaBre=self.idemoBrzinaBre-100
+                            elif self.idemoBrzinaBre>50:
+                                self.idemoBrzinaBre=self.idemoBrzinaBre-50
+                            else:
+                                self.idemoBrzinaBre=20
                             self.ajmoTimer.stop()
                             self.generateObjectWithTimer()
                         if self.brojCoina > 3:
@@ -138,7 +143,7 @@ class TimerObjects:
                     item.skloniMeMolimTe()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj and tempX < self.krajnjaDesnaMoj and (tempYK <= self.krajnjaGornjaMoj +20 and tempYK >= self.krajnjaGornjaMoj)):
+                if (tempX > self.krajnjaLevaMoj and tempX < self.krajnjaDesnaMoj and (tempYK <= self.krajnjaGornjaMoj +80 and tempYK >= self.krajnjaGornjaMoj)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.incrementLife()
@@ -171,8 +176,8 @@ class TimerObjectsMulti:
         self.ajmoTimer = PyQt5.QtCore.QTimer()
         self.ajmoTimer.timeout.connect(self.createObject)
 
-        if (self.idemoBrzinaBre<50):
-            self.idemoBrzinaBre=50
+        #if (self.idemoBrzinaBre<50):
+            #self.idemoBrzinaBre=50
 
         self.ajmoTimer.start(self.idemoBrzinaBre)
 
@@ -197,7 +202,10 @@ class TimerObjectsMulti:
             self.mrs = self.mrs + 1
 
         if self.napravi % 30 == 0:
-            self.idemoBrzinaBre = self.idemoBrzinaBre - 50
+            if self.idemoBrzinaBre>50:
+                self.idemoBrzinaBre = self.idemoBrzinaBre - 50
+            else:
+                self.idemoBrzinaBre=20
             self.ajmoTimer.stop()
             self.generateObjectWithTimer()
 
@@ -207,7 +215,7 @@ class TimerObjectsMulti:
 
             #za igraca1
             if type(item) == Avatar.Avatar:
-                if (tempX>self.krajnjaLevaMoj1 and tempX<self.krajnjaDesnaMoj1 and (tempYK<=self.krajnjaGornjaMoj1+20 and tempYK>=self.krajnjaGornjaMoj1 )):
+                if (tempX>self.krajnjaLevaMoj1 and tempX<self.krajnjaDesnaMoj1 and (tempYK<=self.krajnjaGornjaMoj1+120 and tempYK>=self.krajnjaGornjaMoj1 )):
                     if item.crko==False:
                         self.sco.loseLifeP1()
                         item.crko=True
@@ -219,7 +227,7 @@ class TimerObjectsMulti:
                     item.skloniMeMolimTe()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.changeScoreP1()
@@ -227,7 +235,7 @@ class TimerObjectsMulti:
                     item.skloniMeMolimTe()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.incrementLifeP1()
@@ -235,7 +243,7 @@ class TimerObjectsMulti:
                     item.skloniMeMolimTe()
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.decLifeP2()
@@ -252,7 +260,7 @@ class TimerObjectsMulti:
 
             #za igraca2
             if type(item) == Avatar.Avatar:
-                if (tempX>self.krajnjaLevaMoj2 and tempX<self.krajnjaDesnaMoj2 and (tempYK<=self.krajnjaGornjaMoj2+20 and tempYK>=self.krajnjaGornjaMoj2 )):
+                if (tempX>self.krajnjaLevaMoj2 and tempX<self.krajnjaDesnaMoj2 and (tempYK<=self.krajnjaGornjaMoj2+120 and tempYK>=self.krajnjaGornjaMoj2 )):
                     if item.crko==False:
                         self.sco.loseLifeP2()
                         item.crko=True
@@ -264,7 +272,7 @@ class TimerObjectsMulti:
                     item.skloniMeMolimTe()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.changeScoreP2()
@@ -272,7 +280,7 @@ class TimerObjectsMulti:
                     item.skloniMeMolimTe()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.incrementLifeP2()
@@ -281,7 +289,7 @@ class TimerObjectsMulti:
 
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.decLifeP1()
@@ -319,8 +327,8 @@ class TimerObjectsChampSF1:
         self.ajmoTimer = PyQt5.QtCore.QTimer()
         self.ajmoTimer.timeout.connect(self.createObject)
 
-        if (self.idemoBrzinaBre<50):
-            self.idemoBrzinaBre=50
+        #if (self.idemoBrzinaBre<50):
+            #self.idemoBrzinaBre=50
 
         self.ajmoTimer.start(self.idemoBrzinaBre)
 
@@ -345,7 +353,10 @@ class TimerObjectsChampSF1:
             self.mrs = self.mrs + 1
 
         if self.napravi % 30 == 0:
-            self.idemoBrzinaBre = self.idemoBrzinaBre - 50
+            if self.idemoBrzinaBre > 50:
+                self.idemoBrzinaBre = self.idemoBrzinaBre - 50
+            else:
+                self.idemoBrzinaBre = 20
             self.ajmoTimer.stop()
             self.generateObjectWithTimer()
 
@@ -355,7 +366,7 @@ class TimerObjectsChampSF1:
 
             #za igraca1
             if type(item) == Avatar.Avatar:
-                if (tempX>self.krajnjaLevaMoj1 and tempX<self.krajnjaDesnaMoj1 and (tempYK<=self.krajnjaGornjaMoj1+20 and tempYK>=self.krajnjaGornjaMoj1 )):
+                if (tempX>self.krajnjaLevaMoj1 and tempX<self.krajnjaDesnaMoj1 and (tempYK<=self.krajnjaGornjaMoj1+120 and tempYK>=self.krajnjaGornjaMoj1 )):
                     if item.crko==False:
                         self.sco.loseLifeP1()
                         item.crko=True
@@ -367,7 +378,7 @@ class TimerObjectsChampSF1:
                     item.skloniMeMolimTe()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.changeScoreP1()
@@ -375,7 +386,7 @@ class TimerObjectsChampSF1:
                     item.skloniMeMolimTe()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.incrementLifeP1()
@@ -383,7 +394,7 @@ class TimerObjectsChampSF1:
                     item.skloniMeMolimTe()
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.decLifeP2()
@@ -399,7 +410,7 @@ class TimerObjectsChampSF1:
 
             #za igraca2
             if type(item) == Avatar.Avatar:
-                if (tempX>self.krajnjaLevaMoj2 and tempX<self.krajnjaDesnaMoj2 and (tempYK<=self.krajnjaGornjaMoj2+20 and tempYK>=self.krajnjaGornjaMoj2 )):
+                if (tempX>self.krajnjaLevaMoj2 and tempX<self.krajnjaDesnaMoj2 and (tempYK<=self.krajnjaGornjaMoj2+120 and tempYK>=self.krajnjaGornjaMoj2 )):
                     if item.crko==False:
                         self.sco.loseLifeP2()
                         item.crko=True
@@ -411,7 +422,7 @@ class TimerObjectsChampSF1:
                     item.skloniMeMolimTe()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.changeScoreP2()
@@ -419,7 +430,7 @@ class TimerObjectsChampSF1:
                     item.skloniMeMolimTe()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.incrementLifeP2()
@@ -427,7 +438,7 @@ class TimerObjectsChampSF1:
                     item.skloniMeMolimTe()
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.decLifeP1()
@@ -466,8 +477,8 @@ class TimerObjectsChampSF2:
         self.ajmoTimer = PyQt5.QtCore.QTimer()
         self.ajmoTimer.timeout.connect(self.createObject)
 
-        if (self.idemoBrzinaBre<50):
-            self.idemoBrzinaBre=50
+        #if (self.idemoBrzinaBre<50):
+            #self.idemoBrzinaBre=50
 
         self.ajmoTimer.start(self.idemoBrzinaBre)
 
@@ -492,7 +503,10 @@ class TimerObjectsChampSF2:
             self.mrs = self.mrs + 1
 
         if self.napravi % 30 == 0:
-            self.idemoBrzinaBre = self.idemoBrzinaBre - 50
+            if self.idemoBrzinaBre > 50:
+                self.idemoBrzinaBre = self.idemoBrzinaBre - 50
+            else:
+                self.idemoBrzinaBre = 20
             self.ajmoTimer.stop()
             self.generateObjectWithTimer()
 
@@ -502,7 +516,7 @@ class TimerObjectsChampSF2:
 
             #za igraca1
             if type(item) == Avatar.Avatar:
-                if (tempX>self.krajnjaLevaMoj1 and tempX<self.krajnjaDesnaMoj1 and (tempYK<=self.krajnjaGornjaMoj1+20 and tempYK>=self.krajnjaGornjaMoj1 )):
+                if (tempX>self.krajnjaLevaMoj1 and tempX<self.krajnjaDesnaMoj1 and (tempYK<=self.krajnjaGornjaMoj1+120 and tempYK>=self.krajnjaGornjaMoj1 )):
                     if item.crko==False:
                         self.sco.loseLifeP1()
                         item.crko=True
@@ -514,7 +528,7 @@ class TimerObjectsChampSF2:
                     item.skloniMeMolimTe()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.changeScoreP1()
@@ -522,7 +536,7 @@ class TimerObjectsChampSF2:
                     item.skloniMeMolimTe()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.incrementLifeP1()
@@ -531,7 +545,7 @@ class TimerObjectsChampSF2:
 
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.decLifeP2()
@@ -547,7 +561,7 @@ class TimerObjectsChampSF2:
 
             #za igraca2
             if type(item) == Avatar.Avatar:
-                if (tempX>self.krajnjaLevaMoj2 and tempX<self.krajnjaDesnaMoj2 and (tempYK<=self.krajnjaGornjaMoj2+20 and tempYK>=self.krajnjaGornjaMoj2 )):
+                if (tempX>self.krajnjaLevaMoj2 and tempX<self.krajnjaDesnaMoj2 and (tempYK<=self.krajnjaGornjaMoj2+120 and tempYK>=self.krajnjaGornjaMoj2 )):
                     if item.crko==False:
                         self.sco.loseLifeP2()
                         item.crko=True
@@ -559,7 +573,7 @@ class TimerObjectsChampSF2:
                     item.skloniMeMolimTe()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.changeScoreP2()
@@ -567,7 +581,7 @@ class TimerObjectsChampSF2:
                     item.skloniMeMolimTe()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.incrementLifeP2()
@@ -576,7 +590,7 @@ class TimerObjectsChampSF2:
 
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.decLifeP1()
@@ -615,8 +629,8 @@ class TimerObjectsChampF:
         self.ajmoTimer = PyQt5.QtCore.QTimer()
         self.ajmoTimer.timeout.connect(self.createObject)
 
-        if (self.idemoBrzinaBre<50):
-            self.idemoBrzinaBre=50
+        #if (self.idemoBrzinaBre<50):
+            #self.idemoBrzinaBre=50
 
         self.ajmoTimer.start(self.idemoBrzinaBre)
 
@@ -641,7 +655,10 @@ class TimerObjectsChampF:
             self.mrs = self.mrs + 1
 
         if self.napravi % 30 == 0:
-            self.idemoBrzinaBre = self.idemoBrzinaBre - 50
+            if self.idemoBrzinaBre > 50:
+                self.idemoBrzinaBre = self.idemoBrzinaBre - 50
+            else:
+                self.idemoBrzinaBre = 20
             self.ajmoTimer.stop()
             self.generateObjectWithTimer()
 
@@ -651,7 +668,7 @@ class TimerObjectsChampF:
 
             #za igraca1
             if type(item) == Avatar.Avatar:
-                if (tempX>self.krajnjaLevaMoj1 and tempX<self.krajnjaDesnaMoj1 and (tempYK<=self.krajnjaGornjaMoj1+20 and tempYK>=self.krajnjaGornjaMoj1 )):
+                if (tempX>self.krajnjaLevaMoj1 and tempX<self.krajnjaDesnaMoj1 and (tempYK<=self.krajnjaGornjaMoj1+120 and tempYK>=self.krajnjaGornjaMoj1 )):
                     if item.crko==False:
                         self.sco.loseLifeP1()
                         item.crko=True
@@ -663,7 +680,7 @@ class TimerObjectsChampF:
                     item.skloniMeMolimTe()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.changeScoreP1()
@@ -671,7 +688,7 @@ class TimerObjectsChampF:
                     item.skloniMeMolimTe()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.incrementLifeP1()
@@ -680,7 +697,7 @@ class TimerObjectsChampF:
 
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.decLifeP2()
@@ -696,7 +713,7 @@ class TimerObjectsChampF:
 
             #za igraca2
             if type(item) == Avatar.Avatar:
-                if (tempX>self.krajnjaLevaMoj2 and tempX<self.krajnjaDesnaMoj2 and (tempYK<=self.krajnjaGornjaMoj2+20 and tempYK>=self.krajnjaGornjaMoj2 )):
+                if (tempX>self.krajnjaLevaMoj2 and tempX<self.krajnjaDesnaMoj2 and (tempYK<=self.krajnjaGornjaMoj2+120 and tempYK>=self.krajnjaGornjaMoj2 )):
                     if item.crko==False:
                         self.sco.loseLifeP2()
                         item.crko=True
@@ -708,7 +725,7 @@ class TimerObjectsChampF:
                     item.skloniMeMolimTe()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.changeScoreP2()
@@ -716,7 +733,7 @@ class TimerObjectsChampF:
                     item.skloniMeMolimTe()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.incrementLifeP2()
@@ -725,7 +742,7 @@ class TimerObjectsChampF:
 
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
-                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
                         item.crko = True
                         self.sco.decLifeP1()
