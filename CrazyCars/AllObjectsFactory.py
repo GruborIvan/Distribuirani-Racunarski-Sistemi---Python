@@ -176,7 +176,6 @@ class TimerObjects:
 
         self.napravi = self.napravi + 1
 
-
 class TimerObjectsMulti:
     def __init__(self, screen: QWidget, av1:Avatar,av2:Avatar, sc:ScoresMulti):
         self.screen = screen
@@ -192,6 +191,18 @@ class TimerObjectsMulti:
         self.brojCoina=0
         self.idemoBrzinaBre=500
         self.brojPuta=1
+
+    def muzikaAvatar(self):
+        filename = "Slike/krs1.wav"
+        winsound.PlaySound(filename, winsound.SND_ASYNC)
+
+    def muzikaBomba(self):
+        filename = "Slike/boomba.wav"
+        winsound.PlaySound(filename, winsound.SND_ASYNC)
+
+    def muzikaLife(self):
+        filename = "Slike/life.wav"
+        winsound.PlaySound(filename, winsound.SND_ASYNC)
 
     #prvi nacin
     def generateObjectWithTimer(self):
@@ -239,6 +250,7 @@ class TimerObjectsMulti:
             if type(item) == Avatar.Avatar:
                 if (tempX>self.krajnjaLevaMoj1 and tempX<self.krajnjaDesnaMoj1 and (tempYK<=self.krajnjaGornjaMoj1+120 and tempYK>=self.krajnjaGornjaMoj1 )):
                     if item.crko==False:
+                        self.muzikaAvatar()
                         self.sco.loseLifeP1()
                         item.crko=True
                         if self.sco.lifeCount==0:
@@ -259,6 +271,7 @@ class TimerObjectsMulti:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
+                        self.muzikaLife()
                         item.crko = True
                         self.sco.incrementLifeP1()
 
@@ -267,6 +280,7 @@ class TimerObjectsMulti:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
                     if item.crko == False:
+                        self.muzikaBomba()
                         item.crko = True
                         self.sco.decLifeP2()
                         if self.sco.lifeCountp2==0:
@@ -284,6 +298,7 @@ class TimerObjectsMulti:
             if type(item) == Avatar.Avatar:
                 if (tempX>self.krajnjaLevaMoj2 and tempX<self.krajnjaDesnaMoj2 and (tempYK<=self.krajnjaGornjaMoj2+120 and tempYK>=self.krajnjaGornjaMoj2 )):
                     if item.crko==False:
+                        self.muzikaAvatar()
                         self.sco.loseLifeP2()
                         item.crko=True
                         if self.sco.lifeCountp2==0:
@@ -304,6 +319,7 @@ class TimerObjectsMulti:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
+                        self.muzikaLife()
                         item.crko = True
                         self.sco.incrementLifeP2()
 
@@ -313,6 +329,7 @@ class TimerObjectsMulti:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
                     if item.crko == False:
+                        self.muzikaBomba()
                         item.crko = True
                         self.sco.decLifeP1()
                         if self.sco.lifeCount==0:
