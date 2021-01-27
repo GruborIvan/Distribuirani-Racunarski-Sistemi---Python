@@ -36,7 +36,7 @@ class Zivot:
     def getCoords(self):
         return self.x,self.y
 
-    def hideZivot(self):
+    def skloniMeMolimTe(self):
         self.label.hide()
 
 

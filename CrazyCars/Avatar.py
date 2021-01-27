@@ -54,7 +54,7 @@ class Avatar:
         return self.x, self.y
 
 
-    def HideAvatar(self):
+    def skloniMeMolimTe(self):
         self.label.hide()
 
 
