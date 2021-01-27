@@ -3,7 +3,7 @@ import random
 import time
 import multiprocessing
 import threading
-
+import winsound
 
 import PyQt5
 from PyQt5.QtCore import QCoreApplication, QRect, QSize
@@ -91,6 +91,21 @@ class TimerObjects:
         self.ajmoTimer.timeout.connect(self.createObject)
         self.ajmoTimer.start(self.idemoBrzinaBre)
 
+    def muzikaAvatar(self):
+        filename = "Slike/krs1.wav"
+        winsound.PlaySound(filename, winsound.SND_ASYNC)
+
+    def muzikaCoin(self):
+        filename = "Slike/coin.wav"
+        winsound.PlaySound(filename, winsound.SND_ASYNC)
+
+    def muzikaLife(self):
+        filename = "Slike/life.wav"
+        winsound.PlaySound(filename, winsound.SND_ASYNC)
+
+    def gasiMuziku(self):
+        winsound.PlaySound(None,winsound.SND_PURGE)
+
 
     def createObject(self):
 
@@ -113,6 +128,7 @@ class TimerObjects:
             if type(item) == Avatar.Avatar:
                 if (tempX>self.krajnjaLevaMoj and tempX<self.krajnjaDesnaMoj and (tempYK<=self.krajnjaGornjaMoj+120 and tempYK>=self.krajnjaGornjaMoj )):
                     if item.crko==False:
+                        self.muzikaAvatar()
                         self.sco.loseLife()
                         item.crko=True
                         if self.sco.lifeCount==0:
@@ -120,11 +136,14 @@ class TimerObjects:
                             self.wp = window.PauseWindow(self.sco.scoreValue)
                             self.wp.show()
                             self.screen.close()
+
                     item.skloniMeMolimTe()
+                    #self.gasiMuziku()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj and tempX < self.krajnjaDesnaMoj and (tempYK <= self.krajnjaGornjaMoj +80 and tempYK >= self.krajnjaGornjaMoj)):
                     if item.crko == False:
+                        self.muzikaCoin()
                         item.crko = True
                         self.sco.changeScore()
                         self.brojCoina = self.brojCoina + 1
@@ -145,6 +164,7 @@ class TimerObjects:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj and tempX < self.krajnjaDesnaMoj and (tempYK <= self.krajnjaGornjaMoj +80 and tempYK >= self.krajnjaGornjaMoj)):
                     if item.crko == False:
+                        self.muzikaLife()
                         item.crko = True
                         self.sco.incrementLife()
 
@@ -154,6 +174,7 @@ class TimerObjects:
             item.moveMeDown()
 
         self.napravi = self.napravi + 1
+
 
 class TimerObjectsMulti:
     def __init__(self, screen: QWidget, av1:Avatar,av2:Avatar, sc:ScoresMulti):
