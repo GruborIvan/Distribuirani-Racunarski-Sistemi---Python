@@ -136,9 +136,13 @@ class TimerObjects:
                             self.wp = window.PauseWindow(self.sco.scoreValue)
                             self.wp.show()
                             self.screen.close()
+<<<<<<< HEAD
 
                     item.skloniMeMolimTe()
                     #self.gasiMuziku()
+=======
+                    item.HideAvatar()
+>>>>>>> 23ff5249a3fda47724d7c12644cb9e24ae00ae0f
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj and tempX < self.krajnjaDesnaMoj and (tempYK <= self.krajnjaGornjaMoj +80 and tempYK >= self.krajnjaGornjaMoj)):
@@ -159,7 +163,7 @@ class TimerObjects:
                             self.generateObjectWithTimer()
                         if self.brojCoina > 3:
                             self.brojCoina = 1
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj and tempX < self.krajnjaDesnaMoj and (tempYK <= self.krajnjaGornjaMoj +80 and tempYK >= self.krajnjaGornjaMoj)):
@@ -168,7 +172,7 @@ class TimerObjects:
                         item.crko = True
                         self.sco.incrementLife()
 
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
 
             item.moveMeDown()
@@ -245,7 +249,7 @@ class TimerObjectsMulti:
                             self.wp = window.PauseWindowMulti("Player 2","Player 1")
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
@@ -253,7 +257,7 @@ class TimerObjectsMulti:
                         item.crko = True
                         self.sco.changeScoreP1()
                         self.brojCoina = self.brojCoina + 1
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
@@ -261,7 +265,7 @@ class TimerObjectsMulti:
                         item.crko = True
                         self.sco.incrementLifeP1()
 
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
@@ -273,7 +277,7 @@ class TimerObjectsMulti:
                             self.wp = window.PauseWindowMulti("Player 1","Player 2")
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
 
 
@@ -290,7 +294,7 @@ class TimerObjectsMulti:
                             self.wp = window.PauseWindowMulti("Player 1", "Player 2")
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
@@ -298,7 +302,7 @@ class TimerObjectsMulti:
                         item.crko = True
                         self.sco.changeScoreP2()
                         self.brojCoina = self.brojCoina + 1
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
@@ -306,7 +310,7 @@ class TimerObjectsMulti:
                         item.crko = True
                         self.sco.incrementLifeP2()
 
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
@@ -319,7 +323,7 @@ class TimerObjectsMulti:
                             self.wp = window.PauseWindowMulti("Player 2","Player 1")
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
             item.moveMeDown()
 
@@ -396,7 +400,7 @@ class TimerObjectsChampSF1:
                             self.wp = window.PauseWindowChampSF1("Player 2")
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
@@ -404,7 +408,7 @@ class TimerObjectsChampSF1:
                         item.crko = True
                         self.sco.changeScoreP1()
                         self.brojCoina = self.brojCoina + 1
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
@@ -412,7 +416,7 @@ class TimerObjectsChampSF1:
                         item.crko = True
                         self.sco.incrementLifeP1()
 
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
@@ -424,7 +428,7 @@ class TimerObjectsChampSF1:
                             self.wp = window.PauseWindowChampSF1("Player 1")
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
 
 
@@ -440,7 +444,7 @@ class TimerObjectsChampSF1:
                             self.wp = window.PauseWindowChampSF1("Player 1")
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
@@ -448,7 +452,7 @@ class TimerObjectsChampSF1:
                         item.crko = True
                         self.sco.changeScoreP2()
                         self.brojCoina = self.brojCoina + 1
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
@@ -456,7 +460,7 @@ class TimerObjectsChampSF1:
                         item.crko = True
                         self.sco.incrementLifeP2()
 
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
@@ -468,7 +472,7 @@ class TimerObjectsChampSF1:
                             self.wp = window.PauseWindowChampSF1("Player 2")
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
             item.moveMeDown()
 
@@ -546,7 +550,7 @@ class TimerObjectsChampSF2:
                             self.wp = window.PauseWindowChampSF2("Player 4",self.pob1)
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
@@ -554,7 +558,7 @@ class TimerObjectsChampSF2:
                         item.crko = True
                         self.sco.changeScoreP1()
                         self.brojCoina = self.brojCoina + 1
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
@@ -562,7 +566,7 @@ class TimerObjectsChampSF2:
                         item.crko = True
                         self.sco.incrementLifeP1()
 
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
@@ -575,7 +579,7 @@ class TimerObjectsChampSF2:
                             self.wp = window.PauseWindowChampSF2("Player 3", self.pob1)
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
 
 
@@ -591,7 +595,7 @@ class TimerObjectsChampSF2:
                             self.wp = window.PauseWindowChampSF2("Player 3", self.pob1)
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
@@ -599,7 +603,7 @@ class TimerObjectsChampSF2:
                         item.crko = True
                         self.sco.changeScoreP2()
                         self.brojCoina = self.brojCoina + 1
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
@@ -607,7 +611,7 @@ class TimerObjectsChampSF2:
                         item.crko = True
                         self.sco.incrementLifeP2()
 
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
@@ -620,7 +624,7 @@ class TimerObjectsChampSF2:
                             self.wp = window.PauseWindowChampSF2("Player 4", self.pob1)
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
             item.moveMeDown()
 
@@ -698,7 +702,7 @@ class TimerObjectsChampF:
                             self.wp = window.PauseWindowChampF(self.pob2)
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
@@ -706,7 +710,7 @@ class TimerObjectsChampF:
                         item.crko = True
                         self.sco.changeScoreP1()
                         self.brojCoina = self.brojCoina + 1
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +80 and tempYK >= self.krajnjaGornjaMoj1)):
@@ -714,7 +718,7 @@ class TimerObjectsChampF:
                         item.crko = True
                         self.sco.incrementLifeP1()
 
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
@@ -727,7 +731,7 @@ class TimerObjectsChampF:
                             self.wp = window.PauseWindowChampF(self.pob1)
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
 
 
@@ -743,7 +747,7 @@ class TimerObjectsChampF:
                             self.wp = window.PauseWindowChampF(self.pob1)
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Coin.Coin:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
@@ -751,7 +755,7 @@ class TimerObjectsChampF:
                         item.crko = True
                         self.sco.changeScoreP2()
                         self.brojCoina = self.brojCoina + 1
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
             elif type(item) == Zivot.Zivot:
                 tempYK = tempY-20
                 if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +80 and tempYK >= self.krajnjaGornjaMoj2)):
@@ -759,7 +763,7 @@ class TimerObjectsChampF:
                         item.crko = True
                         self.sco.incrementLifeP2()
 
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
             elif type(item) == Bomba.Bomba:
                 tempYK = tempY-20
@@ -772,7 +776,7 @@ class TimerObjectsChampF:
                             self.wp = window.PauseWindowChampF(self.pob2)
                             self.wp.show()
                             self.screen.close()
-                    item.skloniMeMolimTe()
+                    item.HideAvatar()
 
             item.moveMeDown()
 
