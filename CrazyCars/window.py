@@ -1,4 +1,5 @@
 import sys
+import winsound
 
 from PyQt5.QtCore import QCoreApplication, QRect, QSize, QThread, QProcess
 from PyQt5.QtGui import QIcon, QCursor, QPainter, QPen, QBrush, QColor, QPixmap, QImage, QPalette
@@ -711,6 +712,8 @@ class PauseWindowChampSF2(QWidget):
         self.hide()
 
 
+
+
 class PauseWindowChampF(QWidget):
 
     def __init__(self,p1:str):
@@ -733,6 +736,7 @@ class PauseWindowChampF(QWidget):
         self.show()
 
     def center(self):
+        self.muzika()
         qr = self.frameGeometry()
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
@@ -802,9 +806,18 @@ class PauseWindowChampF(QWidget):
         exitButton.clicked.connect(self.playWindowChamp)
 
     def playWindowChamp(self):
+        self.muzikaStop()
         self.wm = MainWindow()
         self.wm.show()
         self.hide()
+
+    def muzika(self):
+        filename = "Slike/winner.wav"
+        winsound.PlaySound(filename, winsound.SND_ASYNC)
+
+    def muzikaStop(self):
+        winsound.PlaySound(None, winsound.SND_PURGE)
+
 
 
 class UputstvoWindow(QWidget):
@@ -1212,6 +1225,7 @@ class UputstvoWindowChampF(QWidget):
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
+        self.muzika()
 
     def setScreen(self):
         font = QtGui.QFont()
@@ -1324,9 +1338,17 @@ class UputstvoWindowChampF(QWidget):
         self.labelGorep11.setText("KEY J - Move Left, KEY L - Move Right")
 
     def playScreen(self):
+        self.muzikaStop()
         self.wm = PlayWindowChampF(self.pob1,self.pob2)
         self.wm.show()
         self.hide()
+
+    def muzika(self):
+        filename = "Slike/final.wav"
+        winsound.PlaySound(filename, winsound.SND_ASYNC)
+
+    def muzikaStop(self):
+        winsound.PlaySound(None, winsound.SND_PURGE)
 
 
 class UputstvoWindowChampSF1(QWidget):
