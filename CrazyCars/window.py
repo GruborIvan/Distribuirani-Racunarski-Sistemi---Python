@@ -17,11 +17,11 @@ from ScoresMulti import ScoresChampF
 from Coin import Coin
 from Coin import CoinFactory
 from AllObjectsFactory import ObjectFactory
-from AllObjectsFactory import TimerObjects
-from AllObjectsFactory import TimerObjectsMulti
-from AllObjectsFactory import TimerObjectsChampSF1
-from AllObjectsFactory import TimerObjectsChampSF2
-from AllObjectsFactory import TimerObjectsChampF
+from TimerObjectsSingleMulti import TimerObjects
+from TimerObjectsSingleMulti import TimerObjectsMulti
+from TimerObjectsForChampionship import TimerObjectsChampSF1
+from TimerObjectsForChampionship import TimerObjectsChampSF2
+from TimerObjectsForChampionship import TimerObjectsChampF
 
 
 class MainWindow(QWidget):
