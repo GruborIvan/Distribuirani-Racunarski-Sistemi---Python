@@ -381,6 +381,18 @@ class TimerObjectsChampSF1:
                         self.sco.incrementLifeP1()
 
                     item.skloniMeMolimTe()
+            elif type(item) == Bomba.Bomba:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.decLifeP2()
+                        if self.sco.lifeCountp2==0:
+                            self.ajmoTimer.stop()
+                            self.wp = window.PauseWindowChampSF1("Player 1")
+                            self.wp.show()
+                            self.screen.close()
+                    item.skloniMeMolimTe()
 
 
 
@@ -413,6 +425,18 @@ class TimerObjectsChampSF1:
                         self.sco.incrementLifeP2()
 
                     item.skloniMeMolimTe()
+            elif type(item) == Bomba.Bomba:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.decLifeP1()
+                        if self.sco.lifeCount==0:
+                            self.ajmoTimer.stop()
+                            self.wp = window.PauseWindowChampSF1("Player 2")
+                            self.wp.show()
+                            self.screen.close()
+                    item.skloniMeMolimTe()
 
             item.moveMeDown()
 
@@ -420,6 +444,7 @@ class TimerObjectsChampSF1:
         self.napravi = self.napravi + 1
 
 class TimerObjectsChampSF2:
+
     def __init__(self, screen: QWidget, av1:Avatar,av2:Avatar, sc:ScoresMulti, pob1:str=""):
         self.screen = screen
         self.list = QListWidget()
@@ -504,6 +529,19 @@ class TimerObjectsChampSF2:
 
                     item.skloniMeMolimTe()
 
+            elif type(item) == Bomba.Bomba:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.decLifeP2()
+                        if self.sco.lifeCountp2==0:
+                            self.ajmoTimer.stop()
+                            self.wp = window.PauseWindowChampSF2("Player 3", self.pob1)
+                            self.wp.show()
+                            self.screen.close()
+                    item.skloniMeMolimTe()
+
 
 
 
@@ -534,6 +572,19 @@ class TimerObjectsChampSF2:
                         item.crko = True
                         self.sco.incrementLifeP2()
 
+                    item.skloniMeMolimTe()
+
+            elif type(item) == Bomba.Bomba:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.decLifeP1()
+                        if self.sco.lifeCount==0:
+                            self.ajmoTimer.stop()
+                            self.wp = window.PauseWindowChampSF2("Player 4", self.pob1)
+                            self.wp.show()
+                            self.screen.close()
                     item.skloniMeMolimTe()
 
             item.moveMeDown()
@@ -627,6 +678,19 @@ class TimerObjectsChampF:
 
                     item.skloniMeMolimTe()
 
+            elif type(item) == Bomba.Bomba:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj1 and tempX < self.krajnjaDesnaMoj1 and (tempYK <= self.krajnjaGornjaMoj1 +20 and tempYK >= self.krajnjaGornjaMoj1)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.decLifeP2()
+                        if self.sco.lifeCountp2==0:
+                            self.ajmoTimer.stop()
+                            self.wp = window.PauseWindowChampF(self.pob1)
+                            self.wp.show()
+                            self.screen.close()
+                    item.skloniMeMolimTe()
+
 
 
 
@@ -657,6 +721,19 @@ class TimerObjectsChampF:
                         item.crko = True
                         self.sco.incrementLifeP2()
 
+                    item.skloniMeMolimTe()
+
+            elif type(item) == Bomba.Bomba:
+                tempYK = tempY-20
+                if (tempX > self.krajnjaLevaMoj2 and tempX < self.krajnjaDesnaMoj2 and (tempYK <= self.krajnjaGornjaMoj2 +20 and tempYK >= self.krajnjaGornjaMoj2)):
+                    if item.crko == False:
+                        item.crko = True
+                        self.sco.decLifeP1()
+                        if self.sco.lifeCount==0:
+                            self.ajmoTimer.stop()
+                            self.wp = window.PauseWindowChampF(self.pob2)
+                            self.wp.show()
+                            self.screen.close()
                     item.skloniMeMolimTe()
 
             item.moveMeDown()

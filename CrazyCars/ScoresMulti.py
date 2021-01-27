@@ -85,14 +85,17 @@ class ScoresMulti:
         self.lifeCount=self.lifeCount+1
         self.label_6.setNum(self.lifeCount)
 
-    def decLifeP1(self):
-        self.lifeCount=self.lifeCount-1
-        self.label_6.setNum(self.lifeCount)
+
 
 
     def incrementLifeP2(self):
         self.lifeCountp2=self.lifeCountp2+1
         self.label_6p2.setNum(self.lifeCountp2)
+
+
+    def decLifeP1(self):
+        self.lifeCount=self.lifeCount-1
+        self.label_6.setNum(self.lifeCount)
 
     def decLifeP2(self):
         self.lifeCountp2=self.lifeCountp2-1
@@ -184,6 +187,14 @@ class ScoresChampSF2:
         self.lifeCountp2=self.lifeCountp2+1
         self.label_6p2.setNum(self.lifeCountp2)
 
+    def decLifeP1(self):
+        self.lifeCount=self.lifeCount-1
+        self.label_6.setNum(self.lifeCount)
+
+    def decLifeP2(self):
+        self.lifeCountp2=self.lifeCountp2-1
+        self.label_6p2.setNum(self.lifeCountp2)
+
 
 class ScoresChampF:
     def __init__(self, screen: QWidget, pobSF1:str="", pobSF2:str=""):
@@ -271,4 +282,12 @@ class ScoresChampF:
 
     def incrementLifeP2(self):
         self.lifeCountp2=self.lifeCountp2+1
+        self.label_6p2.setNum(self.lifeCountp2)
+
+    def decLifeP1(self):
+        self.lifeCount=self.lifeCount-1
+        self.label_6.setNum(self.lifeCount)
+
+    def decLifeP2(self):
+        self.lifeCountp2=self.lifeCountp2-1
         self.label_6p2.setNum(self.lifeCountp2)
