@@ -10,14 +10,17 @@ from PyQt5 import QtGui, QtWidgets, QtCore
 
 
 class Zivot:
+
+    #Constructor
     def __init__(self, screen: QWidget, x: int = 110, y: int=0, width: int=25, height: int=25, img: str='Slike/rsz_mrs.png'):
 
+        #Koordinate.
         self.x = x
         self.y = y
-        self.width = width
-        self.height = height
-        self.img = img
 
+        self.width = width
+        self.height = height    #Sirina i visina.
+        self.img = img
         self.crko=False
 
         self.label = QLabel(screen)
@@ -33,11 +36,13 @@ class Zivot:
     def getCoords(self):
         return self.x,self.y
 
-    def skloniMeMolimTe(self):
+    def hideZivot(self):
         self.label.hide()
 
 
 class SrceFactory():
+
+    #Constructor
     def __init__(self, screen: QWidget):
         self.y=0
         self.width=25
@@ -45,6 +50,7 @@ class SrceFactory():
         self.screen=screen
 
 
+    #Generisanje Random srca (zivot)
     def createRandomSrce(self):
         x_values=[110,183,263,343,414]
         self.x = x_values[random.randint(0,4)]

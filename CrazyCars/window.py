@@ -25,28 +25,29 @@ from AllObjectsFactory import TimerObjectsChampF
 
 class MainWindow(QWidget):
 
+    #Constructor
     def __init__(self):
         super().__init__()
+        self.initUI()   #Poziv UI inicijalizacije.
 
-        self.initUI()
-
+    #Inicijalizacija User Interface-a.
     def initUI(self):
         self.setFixedSize(550, 700)
         self.setWindowTitle('Crazy Cars')
         self.setWindowIcon(QIcon('Slike/toy-red-car-isolated-on-white-background-donald-erickson.jpg'))
         self.setStyleSheet("background-color:white")
-        # self.setStyleSheet("background-color:Blue")
         self.center()
         self.mainScreen()
-        # self.opt_w=Option()
-        # self.setCentralWidget(self.opt_w)
         self.show()
 
+
+    #Centriranje prozora na centar ekrana.
     def center(self):
         qr = self.frameGeometry()
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
+
 
     def mainScreen(self):
 
@@ -87,7 +88,7 @@ class MainWindow(QWidget):
         playButton.setFont(font)
         playButton.setStyleSheet("background-color:orange")
 
-        #dugme za multiplejer
+        #Dugme za multiplejer
         playButtonMulti = QtWidgets.QPushButton(self)
         playButtonMulti.setGeometry(QtCore.QRect(50, 500, 211, 71))
         font = QtGui.QFont()
@@ -96,7 +97,7 @@ class MainWindow(QWidget):
         playButtonMulti.setFont(font)
         playButtonMulti.setStyleSheet("background-color:orange")
 
-        # dugme za turnir
+        #Dugme za Championship(Turnir).
         playButtonChamp = QtWidgets.QPushButton(self)
         playButtonChamp.setGeometry(QtCore.QRect(50, 600, 211, 71))
         font = QtGui.QFont()
@@ -105,7 +106,7 @@ class MainWindow(QWidget):
         playButtonChamp.setFont(font)
         playButtonChamp.setStyleSheet("background-color:orange")
 
-
+        #Dugme za EXIT.
         exitButton = QtWidgets.QPushButton(self)
         exitButton.setGeometry(QtCore.QRect(290, 600, 211, 71))
         font = QtGui.QFont()
@@ -114,11 +115,13 @@ class MainWindow(QWidget):
         exitButton.setFont(font)
         exitButton.setStyleSheet("background-color:orange")
 
+        #Dugme za Single Player.
         playButton.setText("Single player")
         playButtonMulti.setText("Multiplayer")
         playButtonChamp.setText("Championship")
         exitButton.setText("QUIT")
 
+        #Trigger na dogadjaje pritiska dugmeta.
         exitButton.clicked.connect(QCoreApplication.instance().quit)
         playButton.clicked.connect(self.uputstvoScreen)
         playButtonMulti.clicked.connect(self.uputstvoScreenMulti)
@@ -148,6 +151,7 @@ class MainWindow(QWidget):
         self.w = PlayWindowMulti()
         self.w.show()
         self.hide()
+
 
 class PlayWindow(QWidget):
 
@@ -211,17 +215,6 @@ class PlayWindow(QWidget):
         self.moveToThread(self.thread)
         self.thread.started.connect(self.tO.generateObjectWithTimer)
         self.thread.start()
-
-
-        #Pokretanje sa tajmerom-Prvi nacin
-        #self.tO.generateObjectWithTimer()
-
-        #Pokretanje drugi nacin
-        #self.tO.pokreniThread()
-
-        #Pokretanje treci nacin
-        #self.tO.generateObjectWithoutTimer()
-
         exit_button.clicked.connect(self.pauseScreen)
 
     def keyPressEvent(self, event):
@@ -302,7 +295,6 @@ class PlayWindowMulti(QWidget):
         self.process=QProcess(self)
         self.process.started.connect(lambda: self.paintEvent(self))
         self.process.start()
-        #self.paintEvent(self)
 
 
         #scores
