@@ -176,25 +176,14 @@ class PlayWindow(QWidget):
         self.move(qr.topLeft())
 
     def mainScreen(self):
-        exit_button = QPushButton("")
-        exit_button.setIcon(QIcon('Slike/pause3.png'))
-        exit_button.setStyleSheet("border: 0px solid black")
-        exit_button.setToolTip("Pause game")
-        exit_button.setFixedWidth(50)
-        exit_button.setFixedHeight(50)
+
         oImage = QImage("Slike/put2.png")
         palette = QPalette()
         palette.setBrush(QPalette.Window, QBrush(oImage))
         self.setPalette(palette)
 
 
-        hbox = QHBoxLayout()
-        hbox.addStretch(1)
-        hbox.addWidget(exit_button)
-        vbox = QVBoxLayout()
-        vbox.addStretch(1)
-        vbox.addLayout(hbox)
-        self.setLayout(vbox)
+
 
 
         self.process=QProcess(self)
@@ -216,7 +205,7 @@ class PlayWindow(QWidget):
         self.moveToThread(self.thread)
         self.thread.started.connect(self.tO.generateObjectWithTimer)
         self.thread.start()
-        exit_button.clicked.connect(self.pauseScreen)
+
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_A:
@@ -272,25 +261,14 @@ class PlayWindowMulti(QWidget):
         self.move(qr.topLeft())
 
     def mainScreen(self):
-        exit_button = QPushButton("")
-        exit_button.setIcon(QIcon('Slike/pause3.png'))
-        exit_button.setStyleSheet("border: 0px solid black")
-        exit_button.setToolTip("Pause game")
-        exit_button.setFixedWidth(50)
-        exit_button.setFixedHeight(50)
+
         oImage = QImage("Slike/put2.png")
         palette = QPalette()
         palette.setBrush(QPalette.Window, QBrush(oImage))
         self.setPalette(palette)
 
 
-        hbox = QHBoxLayout()
-        hbox.addStretch(1)
-        hbox.addWidget(exit_button)
-        vbox = QVBoxLayout()
-        vbox.addStretch(1)
-        vbox.addLayout(hbox)
-        self.setLayout(vbox)
+
 
 
         self.process=QProcess(self)
@@ -318,7 +296,7 @@ class PlayWindowMulti(QWidget):
         #Pokretanje sa tajmerom-Prvi nacin. bez Thread-a
         #self.tO.generateObjectWithTimer()
 
-        exit_button.clicked.connect(self.pauseScreen)
+
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_A:
@@ -1509,25 +1487,14 @@ class PlayWindowChampSF1(QWidget):
         self.move(qr.topLeft())
 
     def mainScreen(self):
-        exit_button = QPushButton("")
-        exit_button.setIcon(QIcon('Slike/pause3.png'))
-        exit_button.setStyleSheet("border: 0px solid black")
-        exit_button.setToolTip("Pause game")
-        exit_button.setFixedWidth(50)
-        exit_button.setFixedHeight(50)
+
         oImage = QImage("Slike/put2.png")
         palette = QPalette()
         palette.setBrush(QPalette.Window, QBrush(oImage))
         self.setPalette(palette)
 
 
-        hbox = QHBoxLayout()
-        hbox.addStretch(1)
-        hbox.addWidget(exit_button)
-        vbox = QVBoxLayout()
-        vbox.addStretch(1)
-        vbox.addLayout(hbox)
-        self.setLayout(vbox)
+
 
 
         self.process=QProcess(self)
@@ -1556,7 +1523,7 @@ class PlayWindowChampSF1(QWidget):
         #Pokretanje sa tajmerom-Prvi nacin. bez Thread-a
         #self.tO.generateObjectWithTimer()
 
-        exit_button.clicked.connect(self.pauseScreen)
+
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_A:
@@ -1613,25 +1580,14 @@ class PlayWindowChampSF2(QWidget):
         self.move(qr.topLeft())
 
     def mainScreen(self):
-        exit_button = QPushButton("")
-        exit_button.setIcon(QIcon('Slike/pause3.png'))
-        exit_button.setStyleSheet("border: 0px solid black")
-        exit_button.setToolTip("Pause game")
-        exit_button.setFixedWidth(50)
-        exit_button.setFixedHeight(50)
+
         oImage = QImage("Slike/put2.png")
         palette = QPalette()
         palette.setBrush(QPalette.Window, QBrush(oImage))
         self.setPalette(palette)
 
 
-        hbox = QHBoxLayout()
-        hbox.addStretch(1)
-        hbox.addWidget(exit_button)
-        vbox = QVBoxLayout()
-        vbox.addStretch(1)
-        vbox.addLayout(hbox)
-        self.setLayout(vbox)
+
 
 
         self.process=QProcess(self)
@@ -1660,7 +1616,7 @@ class PlayWindowChampSF2(QWidget):
         #Pokretanje sa tajmerom-Prvi nacin. bez Thread-a
         #self.tO.generateObjectWithTimer()
 
-        exit_button.clicked.connect(self.pauseScreen)
+
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_A:
@@ -1718,25 +1674,14 @@ class PlayWindowChampF(QWidget):
         self.move(qr.topLeft())
 
     def mainScreen(self):
-        exit_button = QPushButton("")
-        exit_button.setIcon(QIcon('Slike/pause3.png'))
-        exit_button.setStyleSheet("border: 0px solid black")
-        exit_button.setToolTip("Pause game")
-        exit_button.setFixedWidth(50)
-        exit_button.setFixedHeight(50)
+
         oImage = QImage("Slike/put2.png")
         palette = QPalette()
         palette.setBrush(QPalette.Window, QBrush(oImage))
         self.setPalette(palette)
 
 
-        hbox = QHBoxLayout()
-        hbox.addStretch(1)
-        hbox.addWidget(exit_button)
-        vbox = QVBoxLayout()
-        vbox.addStretch(1)
-        vbox.addLayout(hbox)
-        self.setLayout(vbox)
+
 
 
         self.process=QProcess(self)
@@ -1765,7 +1710,7 @@ class PlayWindowChampF(QWidget):
         #Pokretanje sa tajmerom-Prvi nacin. bez Thread-a
         #self.tO.generateObjectWithTimer()
 
-        exit_button.clicked.connect(self.pauseScreen)
+
 
     def keyPressEvent(self, event):
         if event.key() == QtCore.Qt.Key_A:
